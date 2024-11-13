@@ -1,0 +1,7 @@
+{
+  "name": "lib-tiny-baby-ionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

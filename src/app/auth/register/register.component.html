@@ -1,0 +1,27 @@
+<div class="wrapper">
+  <div class="liquid">
+    <img src="/assets/core/sudut2.png" alt="liquid" class="liquid-img">
+  </div>
+  <div class="container">
+    <h1>Create Account</h1>
+    <p>Create an account so you can explore all notification pill</p>
+    <ion-input type="text" label="Email" [(ngModel)]="email">
+      <ion-input-text-toggle slot="end"></ion-input-text-toggle>
+    </ion-input>
+    <ion-input type="password" label="Password" [(ngModel)]="password">
+      <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+    </ion-input>
+    <ion-input type="password" label="Confirm password" [(ngModel)]="confirmPassword">
+      <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+    </ion-input>
+    <ion-button expand="block" (click)="register()">Sign up</ion-button>
+    <p class="create-account" [routerLink]="'/login'">Already have account</p>
+    <p style="margin-bottom: 0rem; margin-top: 5rem; color: #1F41BB;">Or continue with</p>
+    <ion-button (click)="signInWithGoogle()">
+      <ion-icon slot="icon-only" ios="logo-apple" md="logo-google"></ion-icon>
+    </ion-button>
+  </div>
+  <div class="liquid2">
+    <img src="/assets/core/sudut1.png" alt="liquid" class="liquid-img">
+  </div>
+</div>

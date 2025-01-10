@@ -1,39 +1,49 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
+import { AuthGuardService } from '../z-service/auth/auth-guard.service';
 
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: '',
     component: TabsPage,
+    canActivate: [AuthGuardService], // Proteksi seluruh tab
     children: [
       {
-        path: 'tab1',
-        loadChildren: () => import('../tab1/tab1.module').then(m => m.Tab1PageModule)
-      },
-      {
-        path: 'tab2',
-        loadChildren: () => import('../tab2/tab2.module').then(m => m.Tab2PageModule)
-      },
-      {
-        path: 'tab3',
-        loadChildren: () => import('../tab3/tab3.module').then(m => m.Tab3PageModule)
-      },
-      {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: 'home',
         pathMatch: 'full'
-      }
+      },
+      {
+        path: 'home',
+        loadChildren: () => import('../home/home.module').then(m => m.HomePageModule),
+        canActivate: [AuthGuardService] // Proteksi rute home
+      },
+      {
+        path: 'notif',
+        loadChildren: () => import('../notif/notif.module').then(m => m.NotifPageModule),
+        canActivate: [AuthGuardService] // Proteksi rute notif
+      },
+      {
+        path: 'settings',
+        loadChildren: () => import('../settings/settings.module').then(m => m.SettingsPageModule),
+        canActivate: [AuthGuardService] // Proteksi rute settings
+      },
+      {
+        path: 'ringtone',
+        loadChildren: () => import('../ringtone/ringtone.module').then(m => m.RingtonePageModule),
+        canActivate: [AuthGuardService] // Proteksi rute ringtone
+      },
     ]
   },
   {
-    path: '',
-    redirectTo: '/tabs/tab1',
-    pathMatch: 'full'
+    path: '**',
+    redirectTo: '/page/home',
   }
 ];
+
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
 })
-export class TabsPageRoutingModule {}
+export class TabsPageRoutingModule { }

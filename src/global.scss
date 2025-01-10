@@ -25,6 +25,30 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
+
+.toast-success {
+  --background: #4caf50;
+  --color: #fff;
+}
+
+.toast-warning {
+  --background: #fde047;
+  --color: gray;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+}
+
+.toast-info {
+  --background: #2196f3;
+  --color: #fff;
+}
+
+.toast-danger {
+  --background: #f44336;
+  --color: #fff;
+}
+
+
 /**
  * Ionic Dark Mode
  * -----------------------------------------------------
@@ -32,6 +56,6 @@
  * https://ionicframework.com/docs/theming/dark-mode
  */
 
-/* @import "@ionic/angular/css/palettes/dark.always.css"; */
-/* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import "@ionic/angular/css/palettes/dark.system.css";
+// @import "@ionic/angular/css/palettes/dark.always.css";
+// @import "@ionic/angular/css/palettes/dark.class.css";
+// @import "@ionic/angular/css/palettes/dark.system.css";

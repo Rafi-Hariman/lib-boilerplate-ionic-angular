@@ -31,7 +31,7 @@ import { getPerformance, providePerformance } from '@angular/fire/performance';
 import { getStorage, provideStorage } from '@angular/fire/storage';
 import { getRemoteConfig, provideRemoteConfig } from '@angular/fire/remote-config';
 import { getVertexAI, provideVertexAI } from '@angular/fire/vertexai-preview';
-import { environment } from 'src/environments/environment';
+import { environment } from '../environments/environment';
 import { AuthGuardService } from './z-service/auth/auth-guard.service';
 
 @NgModule({

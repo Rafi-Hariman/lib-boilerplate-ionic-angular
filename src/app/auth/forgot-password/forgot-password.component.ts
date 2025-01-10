@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { AuthService } from 'src/app/z-service/auth/auth.service';
+import { AuthService } from '../../z-service/auth/auth.service';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import { ToastService } from 'src/app/z-service/html/toast.service';
+import { ToastService } from '../../z-service/html/toast.service';
 
 @Component({
   selector: 'app-forgot-password',

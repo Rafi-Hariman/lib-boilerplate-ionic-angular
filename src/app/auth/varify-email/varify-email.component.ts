@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { ToastService } from 'src/app/z-service/html/toast.service';
+import { ToastService } from '../../z-service/html/toast.service';
 
 @Component({
   selector: 'app-varify-email',

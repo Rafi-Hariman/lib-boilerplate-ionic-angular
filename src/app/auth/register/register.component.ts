@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/z-service/auth/auth.service';
+import { AuthService } from '../../z-service/auth/auth.service';
 import { ToastService } from '../../z-service/html/toast.service';
 
 @Component({

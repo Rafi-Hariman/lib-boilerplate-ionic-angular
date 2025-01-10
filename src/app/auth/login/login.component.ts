@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
-import { AuthService } from 'src/app/z-service/auth/auth.service';
-import { ToastService } from 'src/app/z-service/html/toast.service';
+import { AuthService } from '../../z-service/auth/auth.service';
+import { ToastService } from '../../z-service/html/toast.service';
 // import { AuthService } from '../../../service/auth.service';
 
 

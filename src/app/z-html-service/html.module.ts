@@ -16,6 +16,7 @@ import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { ToastService } from '../z-service/html/toast.service';
 import { ForgotPasswordComponent } from '../auth/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from '../auth/forgot-password/reset-password/reset-password.component';
+import { HomeServiceComponent } from './UI/home-ui-service/home-service/home-service.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { ResetPasswordComponent } from '../auth/forgot-password/reset-password/r
     BreadcrumbsComponent,
     ForgotPasswordComponent,
     ResetPasswordComponent,
+    HomeServiceComponent,
 
   ],
   imports: [
@@ -52,6 +54,7 @@ import { ResetPasswordComponent } from '../auth/forgot-password/reset-password/r
     BreadcrumbsComponent,
     ForgotPasswordComponent,
     ResetPasswordComponent,
+    HomeServiceComponent,
     HeaderComponent,
     LoaderComponent,
     RefreshComponent,

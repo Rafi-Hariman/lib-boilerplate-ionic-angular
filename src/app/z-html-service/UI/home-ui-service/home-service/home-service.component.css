@@ -1,0 +1,12 @@
+.horizontal-scroll {
+  display: flex;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
+  gap: 8px; /* Spasi antar tombol */
+  padding: 8px 0;
+}
+
+.horizontal-scroll ion-button {
+  margin-right: 8px; /* Opsional untuk spasi tombol */
+}

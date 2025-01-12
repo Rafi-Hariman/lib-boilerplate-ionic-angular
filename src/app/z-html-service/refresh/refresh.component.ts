@@ -12,4 +12,11 @@ export class RefreshComponent implements OnInit {
   ngOnInit() {
   }
 
+
+  onHandleRefresh(event: { target: { complete: () => void; }; }) {
+    setTimeout(() => {
+      event.target.complete();
+      window.location.reload();
+    },722)
+  }
 }

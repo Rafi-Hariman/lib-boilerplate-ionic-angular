@@ -11,13 +11,14 @@ import { NotificationService } from './z-service/notif/notification.service';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent implements OnInit {
+  fcmToken: any;
   constructor(
     private afMessaging: AngularFireMessaging,
     private notificationService: NotificationService) { }
 
   ngOnInit() {
-    this.requestPermission();
-    this.listen();
+    // this.requestPermission();
+    // this.listen();
   }
 
   requestPermission() {
@@ -43,5 +44,13 @@ export class AppComponent implements OnInit {
       });
   }
 
+
+  copyToClipboard(): void {
+    if (this.fcmToken) {
+      navigator.clipboard.writeText(this.fcmToken).then(() => {
+        alert('Token berhasil disalin ke clipboard!');
+      });
+    }
+  }
 
 }

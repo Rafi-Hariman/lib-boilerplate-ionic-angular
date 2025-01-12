@@ -1,7 +1,7 @@
 <ion-content>
   <app-refresh></app-refresh>
-
-  <body>
+<app-notification></app-notification>
+  <!-- <body>
     <div class="wrapper">
       <div class="liquid">
         <img src="assets/core/sudut2.png" alt="liquid" class="liquid-img" />
@@ -28,7 +28,16 @@
       <div class="liquid2">
         <img src="assets/core/sudut1.png" alt="liquid" class="liquid-img" />
       </div>
+    </div> -->
+    <div>
+      <h1>Push Notification Demo</h1>
+      <button (click)="requestPermission()">Aktifkan Notifikasi</button>
+
+      <div *ngIf="fcmToken">
+        <p><strong>FCM Token:</strong> {{ fcmToken }}</p>
+        <button (click)="copyToClipboard()">Salin Token</button>
+      </div>
     </div>
-  </body>
+  <!-- </body> -->
 
 </ion-content>

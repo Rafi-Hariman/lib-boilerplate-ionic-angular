@@ -17,15 +17,16 @@ import { ToastService } from '../z-service/html/toast.service';
 import { ForgotPasswordComponent } from '../auth/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from '../auth/forgot-password/reset-password/reset-password.component';
 import { HomeServiceComponent } from './UI/home-ui-service/home-service/home-service.component';
+import { NotificationComponent } from './notification/notification.component';
 
 
 @NgModule({
   declarations: [
     FooterComponent,
+    NotificationComponent,
     HeaderComponent,
     LoaderComponent,
     RefreshComponent,
-    FooterComponent,
     FabComponent,
     RegisterComponent,
     LoginComponent,
@@ -47,6 +48,7 @@ import { HomeServiceComponent } from './UI/home-ui-service/home-service/home-ser
   ],
   exports: [
     FooterComponent,
+    NotificationComponent,
     FabComponent,
     RegisterComponent,
     LoginComponent,

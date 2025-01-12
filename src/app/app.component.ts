@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FcmTokenService } from './z-service/token/fcm-token.service';
 import { SwPush } from '@angular/service-worker';
 import { environment } from 'src/environments/environment';
+import { AngularFireMessaging } from '@angular/fire/compat/messaging';
+import { NotificationService } from './z-service/notif/notification.service';
 
 @Component({
   selector: 'app-root',
@@ -10,28 +12,36 @@ import { environment } from 'src/environments/environment';
 })
 export class AppComponent implements OnInit {
   constructor(
-    private fcmTokenSvc: FcmTokenService,
-    private swPush: SwPush,
-  ) { }
+    private afMessaging: AngularFireMessaging,
+    private notificationService: NotificationService) { }
 
   ngOnInit() {
-    // this.fcmTokenSvc.requestPermission();
-
-    this.requestSubscription();
+    this.requestPermission();
+    this.listen();
   }
 
-  requestSubscription = () => {
-    if (!this.swPush.isEnabled) {
-      console.log("Notification is not enabled.");
-      return;
-    }
+  requestPermission() {
+    this.afMessaging.requestToken
+    .subscribe(
+      (token) => {
+        console.log('Permission granted! Save to the server!', token);
+        // TODO: send token to server
+       },
+      (error) => { console.error(error); },
+    );
+  }
 
-    this.swPush.requestSubscription({
-      serverPublicKey: 'BGC_csbcErnEASJqvfGl2WIvfMoMQC4To6GTUUsxiKh4ZAorA_2dxKk1IEGBwENCBVlRt3T112bTbp0wa9KYLPA'
-    }).then((_) => {
-      console.log(JSON.stringify(_));
-    }).catch((_) => console.log);
-  };
+  listen() {
+    this.afMessaging.messages
+      .subscribe((message: any) => {
+        console.log(message);
+        this.notificationService.setNotification({
+          body: message.notification.body,
+          title: message.notification.title,
+          isVisible: true
+        })
+      });
+  }
 
 
 }

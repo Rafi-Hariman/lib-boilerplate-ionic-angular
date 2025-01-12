@@ -21,6 +21,7 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/assets",
+              "src/manifest.json",
               {
                 "glob": "**/*",
                 "input": "src/assets",
@@ -107,6 +108,7 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/assets",
+              "src/manifest.json",
               {
                 "glob": "**/*",
                 "input": "src/assets",

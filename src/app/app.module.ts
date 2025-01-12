@@ -33,6 +33,7 @@ import { getRemoteConfig, provideRemoteConfig } from '@angular/fire/remote-confi
 import { getVertexAI, provideVertexAI } from '@angular/fire/vertexai-preview';
 import { environment } from '../environments/environment';
 import { AuthGuardService } from './z-service/auth/auth-guard.service';
+import { FcmTokenService } from './z-service/token/fcm-token.service';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { AuthGuardService } from './z-service/auth/auth-guard.service';
     AuthGuardService,
     DataService,
     FirebaseService,
+    FcmTokenService,
     provideFirebaseApp(() => initializeApp({"projectId":"lib-pill-notification-angular","appId":"1:392629802330:web:221efc5a8afd0565470f63","databaseURL":"https://lib-pill-notification-angular-default-rtdb.asia-southeast1.firebasedatabase.app","storageBucket":"lib-pill-notification-angular.firebasestorage.app","apiKey":"AIzaSyCJ14cjEAtXP2-9L84FmJ_R0RuYSuRh8rI","authDomain":"lib-pill-notification-angular.firebaseapp.com","messagingSenderId":"392629802330","measurementId":"G-RX5QSJK4YQ"})),
     provideAuth(() => getAuth()),
     provideAnalytics(() => getAnalytics()),

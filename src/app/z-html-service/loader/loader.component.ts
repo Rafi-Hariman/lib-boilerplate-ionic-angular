@@ -3,20 +3,21 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-loader',
   templateUrl: './loader.component.html',
-  styleUrls: ['./loader.component.css']
+  styleUrls: ['./loader.component.scss']
 })
 export class LoaderComponent implements OnInit {
+  isLoading: boolean = true;
 
   constructor() { }
 
   ngOnInit() {
+    this.onLoading();
   }
 
-  onHandleRefresh(event: { target: { complete: () => void; }; }) {
+  onLoading() {
     setTimeout(() => {
-      event.target.complete();
-      window.location.reload();
-    },722)
+      this.isLoading = false
+    },1000)
   }
 
 }

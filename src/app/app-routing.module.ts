@@ -5,6 +5,9 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { VarifyEmailComponent } from './auth/varify-email/varify-email.component';
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
+import { EditProfileComponent } from './z-html-service/UI/settings-ui-service/edit-profile/edit-profile.component';
+import { SetnotificationComponent } from './z-html-service/UI/settings-ui-service/setnotification/setnotification.component';
+import { PrivacyPoliceComponent } from './z-html-service/UI/settings-ui-service/privacy-police/privacy-police.component';
 
 
 const routes: Routes = [
@@ -36,6 +39,18 @@ const routes: Routes = [
   {
     path: 'reset-password',
     component: ForgotPasswordComponent
+  },
+  {
+    path: 'page/edit-profile',
+    component: EditProfileComponent
+  },
+  {
+    path: 'page/edit-notification',
+    component: SetnotificationComponent,
+  },
+  {
+    path: 'page/edit-policy',
+    component: PrivacyPoliceComponent,
   },
   {
     path: 'page',

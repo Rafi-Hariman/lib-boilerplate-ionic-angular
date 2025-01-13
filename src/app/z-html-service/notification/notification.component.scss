@@ -28,13 +28,13 @@
         flex: 1;
 
         .youps-notification-title {
-            // color: $youps-main-brown;
+            color: blue;
             font-size: 0.9em;
         }
 
         .youps-notification-body {
             font-size: 0.7em;
-            // color: $youps-secondary-brown;
+            color: brown;
         }
     }
 
@@ -43,9 +43,9 @@
         margin-right: 10px;
         cursor: pointer;
 
-        // .material-icons {
-        //     color: $youps-main-brown;
-        // }
+        .material-icons {
+            color: brown
+        }
     }
 }
 

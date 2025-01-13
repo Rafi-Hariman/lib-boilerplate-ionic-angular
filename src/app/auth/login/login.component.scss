@@ -1,150 +1,150 @@
-// .wrapper {
-//   background-color: white;
-//   font-family: "Poppins", sans-serif;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   height: 100vh;
-//   margin: 0;
-//   overflow: hidden;
-// }
+.wrapper {
+  background-color: white;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
 
-// .container {
-//   /* background-color: #fff; */
-//   border-radius: 30px;
-//   padding: 40px;
-//   z-index: 10;
-//   width: 500px;
-//   //   box-shadow: 0 4px 6px #0000001a;
-//   text-align: center;
-// }
+.container {
+  /* background-color: #fff; */
+  border-radius: 30px;
+  padding: 40px;
+  z-index: 10;
+  width: 500px;
+  //   box-shadow: 0 4px 6px #0000001a;
+  text-align: center;
+}
 
-// .container h1 {
-//   color: #1f41bb;
-//   font-family: "Poppins", sans-serif;
-//   font-weight: bold;
-//   font-size: 24px;
-//   margin-bottom: 3rem;
-// }
+.container h1 {
+  color: #1f41bb;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 3rem;
+}
 
-// .container p {
-//   color: #000;
-//   font-size: 18px;
-//   font-family: "Poppins";
-//   font-weight: bold;
-//   margin-bottom: 3rem;
-// }
+.container p {
+  color: #000;
+  font-size: 18px;
+  font-family: "Poppins";
+  font-weight: bold;
+  margin-bottom: 3rem;
+}
 
-// ion-input{
-//   width: 100%;
-//   padding: 15px;
-//   margin: 14px 0;
-//   border: 1px solid #1a73e8;
-//   border-radius: 5px;
-//   background-color: #f8f9fd;
-//   color: #000;
-//   font-size: 14px;
-//   &:focus {
-//     border: none;
-//     outline: none;
-//   }
-// }
+ion-input{
+  width: 100%;
+  padding: 15px;
+  margin: 14px 0;
+  border: 1px solid #1a73e8;
+  border-radius: 5px;
+  background-color: #f8f9fd;
+  color: #000;
+  font-size: 14px;
+  &:focus {
+    border: none;
+    outline: none;
+  }
+}
 
-// ::ng-deep.input-label-placement-start.sc-ion-input-md-h .input-wrapper.sc-ion-input-md {
-//   margin-left: 12px !important;
-// }
+::ng-deep.input-label-placement-start.sc-ion-input-md-h .input-wrapper.sc-ion-input-md {
+  margin-left: 12px !important;
+}
 
-// .container a {
-//   color: #1a73e8;
-//   font-size: 14px;
-//   text-decoration: none;
-//   display: block;
-//   font-weight: bold;
-//   text-align: end;
-//   margin-bottom: 2rem;
-//   margin-top: 1rem;
-// }
+.container a {
+  color: #1a73e8;
+  font-size: 14px;
+  text-decoration: none;
+  display: block;
+  font-weight: bold;
+  text-align: end;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
 
-// .container button {
-//   width: 100%;
-//   padding: 15px;
-//   background-color: #1a73e8;
-//   color: white;
-//   border: none;
-//   border-radius: 5px;
-//   font-size: 16px;
-//   cursor: pointer;
-// }
+.container button {
+  width: 100%;
+  padding: 15px;
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
 
-// .container .create-account {
-//   color: #494949;
-//   font-size: 16px;
-//   font-weight: bold !important;
-//   margin: 30px 0;
-// }
+.container .create-account {
+  color: #494949;
+  font-size: 16px;
+  font-weight: bold !important;
+  margin: 30px 0;
+}
 
-// .container .social-login {
-//   display: flex;
-//   justify-content: center;
-//   gap: 10px;
-// }
+.container .social-login {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
 
-// .container .social-login ion-icon {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   width: 35px;
-//   height: 35px;
-//   background-color: #f8f9fd;
-//   border-radius: 5px;
-//   color: #000;
-//   font-size: 20px;
-//   text-decoration: none;
-//   margin-top: 0.5rem;
-// }
+.container .social-login ion-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  background-color: #f8f9fd;
+  border-radius: 5px;
+  color: #000;
+  font-size: 20px;
+  text-decoration: none;
+  margin-top: 0.5rem;
+}
 
-// .liquid {
-//   position: absolute;
-//   top: -7px;
-//   z-index: 1;
-//   right: -21px;
-//   animation: scaleUpDown 3s ease-in-out infinite;
-// }
+.liquid {
+  position: absolute;
+  top: -7px;
+  z-index: 1;
+  right: -21px;
+  animation: scaleUpDown 3s ease-in-out infinite;
+}
 
-// .liquid-img {
-//   width: auto;
-//   height: auto;
-// }
+.liquid-img {
+  width: auto;
+  height: auto;
+}
 
-// .liquid2 {
-//   position: absolute;
-//   bottom: -25px;
-//   z-index: 1;
-//   left: -15px;
-//   animation: moveUpDown 3s ease-in-out infinite;
-// }
+.liquid2 {
+  position: absolute;
+  bottom: -25px;
+  z-index: 1;
+  left: -15px;
+  animation: moveUpDown 3s ease-in-out infinite;
+}
 
-// .liquid-img2 {
-//   width: 130px;
-//   height: auto;
-// }
+.liquid-img2 {
+  width: 130px;
+  height: auto;
+}
 
-// @keyframes scaleUpDown {
-//   0%,
-//   100% {
-//     transform: translateY(0);
-//   }
-//   50% {
-//     transform: translateY(-10px);
-//   }
-// }
+@keyframes scaleUpDown {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
 
-// @keyframes moveUpDown {
-//   0%,
-//   100% {
-//     transform: translateY(0);
-//   }
-//   50% {
-//     transform: translateY(-20px);
-//   }
-// }
+@keyframes moveUpDown {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}

@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Elearning</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Course Info -->
+  <div class="course-info">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Testing dan Implementasi</ion-card-title>
+        <ion-card-subtitle>Selasa, 08:50 - 10:30 WIB (K-1 H.21)</ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
+  </div>
+
+  <!-- Task Details -->
+  <div class="task-details">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Tugas Kelompok <ion-icon name="checkmark-circle" color="success"></ion-icon></ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>
+          Jelaskan tugas dari tester dan gambarkan proses dari tahap tester melakukan pengujian program.
+        </p>
+        <ion-button fill="clear" size="small" color="primary" class="download-button">
+          <ion-icon slot="start" name="download"></ion-icon>
+          Download Materi
+        </ion-button>
+        <div class="dates">
+          <p><strong>Dimulai:</strong> Selasa, 26 Oktober 2021, 12:00 WIB</p>
+          <p><strong>Berakhir:</strong> Minggu, 31 Oktober 2021, 12:00 WIB</p>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <!-- Submission Status -->
+  <div class="submission-status">
+    <h3>Status Pengumpulan</h3>
+    <ion-card>
+      <ion-card-content>
+        <ion-item lines="none" class="drop-area">
+          <ion-icon name="cloud-upload-outline" slot="start" size="large"></ion-icon>
+          <ion-label>
+            <h4>Drop files here</h4>
+            <p>or use the "New" button.</p>
+          </ion-label>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <!-- Buttons -->
+  <div class="action-buttons">
+    <ion-button expand="block" color="medium" fill="outline" (click)="onClickCancel()">Batal</ion-button>
+    <ion-button expand="block" color="primary">Simpan</ion-button>
+  </div>
+
+</ion-content>
+
+
+
+
+

@@ -1,43 +1,34 @@
 <ion-content>
   <app-refresh></app-refresh>
-<app-notification></app-notification>
-  <!-- <body>
-    <div class="wrapper">
-      <div class="liquid">
-        <img src="assets/core/sudut2.png" alt="liquid" class="liquid-img" />
-      </div>
-      <div class="container">
-        <h1>Login here</h1>
-        <p>Welcome back, you’ve been missed!</p>
-        <ion-input type="email" label="Email" [(ngModel)]="email">
-          <ion-input-email-toggle slot="end"></ion-input-email-toggle>
-        </ion-input>
-        <ion-input type="password" label="Password" [(ngModel)]="password">
-          <ion-input-password-toggle (keydown.enter)="login()" slot="end"></ion-input-password-toggle>
-        </ion-input>
-        <a routerLink="/forgot-password">Forgot your password?</a>
-        <ion-button expand="block" (click)="login()">Login</ion-button>
-        <p class="create-account" (click)="onNavigateRegister()">Create new account</p>
-        <p style="margin-bottom: 0rem; margin-top: 5rem; color: #1F41BB;">
-          Or continue with
-        </p>
-        <ion-button (click)="signInWithGoogle()">
-          <ion-icon slot="icon-only" ios="logo-apple" md="logo-google"></ion-icon>
-        </ion-button>
-      </div>
-      <div class="liquid2">
-        <img src="assets/core/sudut1.png" alt="liquid" class="liquid-img" />
-      </div>
-    </div> -->
-    <div>
-      <h1>Push Notification Demo</h1>
-      <button (click)="requestPermission()">Aktifkan Notifikasi</button>
+  <body>
 
-      <div *ngIf="fcmToken">
-        <p><strong>FCM Token:</strong> {{ fcmToken }}</p>
-        <button (click)="copyToClipboard()">Salin Token</button>
-      </div>
+  <div class="wrapper">
+    <div class="liquid">
+      <img src="assets/core/sudut2.png" alt="liquid" class="liquid-img" />
     </div>
-  <!-- </body> -->
+    <div class="container">
+      <h1>Login here</h1>
+      <p>Welcome back, you’ve been missed!</p>
+      <ion-input type="email" label="Email" [(ngModel)]="email">
+        <ion-input-email-toggle slot="end"></ion-input-email-toggle>
+      </ion-input>
+      <ion-input type="password" label="Password" [(ngModel)]="password">
+        <ion-input-password-toggle (keydown.enter)="login()" slot="end"></ion-input-password-toggle>
+      </ion-input>
+      <a routerLink="/forgot-password">Forgot your password?</a>
+      <ion-button expand="block" (click)="login()">Login</ion-button>
+      <p class="create-account" (click)="onNavigateRegister()">Create new account</p>
+      <p style="margin-bottom: 0rem; margin-top: 5rem; color: #1F41BB;">
+        Or continue with
+      </p>
+      <ion-button (click)="signInWithGoogle()">
+        <ion-icon slot="icon-only" ios="logo-apple" md="logo-google"></ion-icon>
+      </ion-button>
+    </div>
+    <div class="liquid2">
+      <img src="assets/core/sudut1.png" alt="liquid" class="liquid-img" />
+    </div>
+  </div>
+</body>
 
 </ion-content>

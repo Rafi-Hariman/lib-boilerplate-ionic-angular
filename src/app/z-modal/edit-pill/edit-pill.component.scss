@@ -1,0 +1,76 @@
+.course-info {
+  ion-card {
+    background: linear-gradient(to right, #34d399, #10b981);
+    color: white;
+
+    ion-card-title,
+    ion-card-subtitle {
+      color: white;
+    }
+  }
+}
+
+.task-details {
+  ion-card {
+    margin-top: 1rem;
+
+    ion-card-title {
+      display: flex;
+      align-items: center;
+      ion-icon {
+        margin-left: 0.5rem;
+      }
+    }
+
+    .download-button {
+      margin-top: 0.5rem;
+    }
+
+    .dates {
+      margin-top: 1rem;
+      p {
+        margin: 0.2rem 0;
+      }
+    }
+  }
+}
+
+.submission-status {
+  margin-top: 1rem;
+
+  h3 {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+
+  .drop-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed var(--ion-color-medium);
+    padding: 2rem;
+    border-radius: 10px;
+
+    ion-label {
+      text-align: center;
+
+      h4 {
+        margin: 0;
+      }
+      p {
+        margin: 0.2rem 0 0;
+        color: var(--ion-color-medium);
+      }
+    }
+  }
+}
+
+.action-buttons {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+
+  ion-button {
+    flex: 1;
+  }
+}

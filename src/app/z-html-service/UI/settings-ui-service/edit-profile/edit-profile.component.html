@@ -1,0 +1,77 @@
+<ion-content>
+  <ion-grid class="ion-padding">
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-md="6" size-xs="12">
+        <!-- Header -->
+        <div class="flex items-center ion-margin-bottom">
+          <ion-icon name="arrow-back-outline" size="large" routerLink="/page/settings"></ion-icon>
+          <h1 style="text-align: center;" class="text-1xl font-bold">Edit Profile</h1>
+        </div>
+
+        <!-- Form -->
+        <ion-list>
+          <!-- Full Name -->
+          <ion-item>
+            <ion-label position="stacked">Name</ion-label>
+            <ion-input value="Puerto Rico"></ion-input>
+          </ion-item>
+
+          <!-- Nick Name -->
+          <ion-item>
+            <ion-label position="stacked">Nick Name</ion-label>
+            <ion-input value="puerto_rico"></ion-input>
+          </ion-item>
+
+          <!-- Label -->
+          <ion-item>
+            <ion-label position="stacked">Label</ion-label>
+            <ion-input value="youremail@domain.com" type="email"></ion-input>
+          </ion-item>
+
+          <!-- Phone Number -->
+          <ion-item>
+            <ion-label position="stacked">Phone Number</ion-label>
+            <ion-input value="+01 234 567 89" type="number"></ion-input>
+          </ion-item>
+
+          <!-- Country and Genre -->
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label position="stacked">Country</ion-label>
+                <ion-select placeholder="Select Country">
+                  <ion-select-option>United States</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-col>
+            <ion-col>
+              <ion-item>
+                <ion-label position="stacked">Gender</ion-label>
+                <ion-select placeholder="Select gender">
+                  <ion-select-option>Male</ion-select-option>
+                  <ion-select-option>Female</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+
+          <!-- Address -->
+          <ion-item>
+            <ion-label position="stacked">Address</ion-label>
+            <ion-input value="45 New Avenue, New York"></ion-input>
+          </ion-item>
+        </ion-list>
+
+        <!-- Submit Button -->
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button expand="block" color="primary" routerLink="/page/settings">
+      Submit
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

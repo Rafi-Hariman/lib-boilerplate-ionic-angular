@@ -1,0 +1,47 @@
+<ion-content class="ion-padding">
+  <div class="flex items-center ion-margin-bottom">
+    <ion-icon name="arrow-back-outline" size="large" routerLink="/page/settings"></ion-icon>
+    <h1 style="text-align: center;" class="text-1xl font-bold">Setting notification</h1>
+  </div>
+  <!-- Common Section -->
+  <ion-card-header>
+    <ion-card-title>Common</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-item>
+      <ion-label>General Notification</ion-label>
+      <ion-toggle slot="end" checked color="primary"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>Sound</ion-label>
+      <ion-toggle slot="end" color="primary"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>Vibrate</ion-label>
+      <ion-toggle slot="end" checked color="primary"></ion-toggle>
+    </ion-item>
+  </ion-card-content>
+
+
+  <!-- System & Services Update Section -->
+
+  <ion-card-header>
+    <ion-card-title>System & Services Update</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-item>
+      <ion-label>
+        App Updates
+      </ion-label>
+      <ion-toggle slot="end" color="primary"></ion-toggle>
+    </ion-item>
+  </ion-card-content>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button expand="block" color="primary" routerLink="/page/settings">
+      Submit
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

@@ -18,11 +18,28 @@ import { ForgotPasswordComponent } from '../auth/forgot-password/forgot-password
 import { ResetPasswordComponent } from '../auth/forgot-password/reset-password/reset-password.component';
 import { HomeServiceComponent } from './UI/home-ui-service/home-service/home-service.component';
 import { NotificationComponent } from './notification/notification.component';
+import { SettingsServiceComponent } from './UI/settings-ui-service/settings-service/settings-service.component';
+import { EditProfileComponent } from './UI/settings-ui-service/edit-profile/edit-profile.component';
+import { SetnotificationComponent } from './UI/settings-ui-service/setnotification/setnotification.component';
+import { PrivacyPoliceComponent } from './UI/settings-ui-service/privacy-police/privacy-police.component';
+import { RingtoneServiceComponent } from './UI/ringtone-ui-service/ringtone-service/ringtone-service.component';
+import { EditPillComponent } from '../z-modal/edit-pill/edit-pill.component';
+import { AddPillComponent } from '../z-modal/add-pill/add-pill.component';
+import { DeletePillComponent } from '../z-modal/delete-pill/delete-pill.component';
+import { DetailPillComponent } from '../z-modal/detail-pill/detail-pill.component';
 
 
 @NgModule({
   declarations: [
     FooterComponent,
+    SettingsServiceComponent,
+    PrivacyPoliceComponent,
+    RingtoneServiceComponent,
+    EditPillComponent,
+    AddPillComponent,
+    DetailPillComponent,
+    DeletePillComponent,
+    SetnotificationComponent,
     NotificationComponent,
     HeaderComponent,
     LoaderComponent,
@@ -35,6 +52,7 @@ import { NotificationComponent } from './notification/notification.component';
     ForgotPasswordComponent,
     ResetPasswordComponent,
     HomeServiceComponent,
+    EditProfileComponent,
 
   ],
   imports: [
@@ -48,6 +66,14 @@ import { NotificationComponent } from './notification/notification.component';
   ],
   exports: [
     FooterComponent,
+    SettingsServiceComponent,
+    PrivacyPoliceComponent,
+    RingtoneServiceComponent,
+    EditPillComponent,
+    AddPillComponent,
+    DetailPillComponent,
+    DeletePillComponent,
+    SetnotificationComponent,
     NotificationComponent,
     FabComponent,
     RegisterComponent,
@@ -57,6 +83,7 @@ import { NotificationComponent } from './notification/notification.component';
     ForgotPasswordComponent,
     ResetPasswordComponent,
     HomeServiceComponent,
+    EditProfileComponent,
     HeaderComponent,
     LoaderComponent,
     RefreshComponent,

@@ -1,13 +1,15 @@
 <ion-content>
   <ion-grid>
     <!-- Header -->
-    <ion-row class="ion-align-items-center ion-justify-content-between mb-4">
+    <ion-row class="ion-align-items-center ion-justify-content-between mb-4" style="margin: 0 7px;">
       <ion-col size="auto">
         <p class="ion-text-sm ion-text-gray">12:00</p>
       </ion-col>
       <ion-col size="auto" class="ion-text-right">
-        <ion-icon name="ellipse" size="small"></ion-icon>
-        <ion-icon name="ellipse" size="small"></ion-icon>
+        <ion-button (click)="openModal()" color="primary" fill="outline">
+          Tambah
+          <ion-icon slot="end" name="add"></ion-icon>
+        </ion-button>
       </ion-col>
     </ion-row>
 
@@ -43,12 +45,14 @@
           <ion-button slot="end" fill="clear">
             <ion-icon name="options-outline"></ion-icon>
           </ion-button>
+
+
         </ion-item>
       </ion-col>
     </ion-row>
 
     <!-- Popular Teachers -->
-    <ion-row style="margin: 10px;">
+    <ion-row>
       <ion-col>
         <ion-row class="ion-align-items-center ion-justify-content-between mb-4">
           <ion-col size="auto">
@@ -64,131 +68,56 @@
         <!-- Categories -->
         <ion-row>
           <ion-scroll scroll-x="true" class="horizontal-scroll">
-            <ion-button expand="block" size="small" shape="round" color="tertiary">Island</ion-button>
-            <ion-button expand="block" size="small" shape="round" fill="outline" color="tertiary">Province</ion-button>
-            <ion-button expand="block" size="small" shape="round" fill="outline" color="tertiary">Districts</ion-button>
-            <ion-button expand="block" size="small" shape="round" color="tertiary">All Subjects</ion-button>
-            <ion-button expand="block" size="small" shape="round" fill="outline" color="tertiary">Biology</ion-button>
-            <ion-button expand="block" size="small" shape="round" fill="outline" color="tertiary">Chemistry</ion-button>
-            <ion-button expand="block" size="small" shape="round" fill="outline" color="tertiary">Physics</ion-button>
-            <ion-button expand="block" size="small" shape="round" fill="outline" color="tertiary">Science for
-              Technology</ion-button>
+            <ion-chip size="small" color="tertiary">Island</ion-chip>
+            <ion-chip size="small" color="tertiary">Province</ion-chip>
+            <ion-chip size="small" color="tertiary">Districts</ion-chip>
+            <ion-chip size="small" color="tertiary">All Subjects</ion-chip>
+            <ion-chip size="small" color="tertiary">Biology</ion-chip>
+            <ion-chip size="small" color="tertiary">Chemistry</ion-chip>
+            <ion-chip size="small" color="tertiary">Physics</ion-chip>
+            <ion-chip size="small" color="tertiary">Science for
+              Technology</ion-chip>
           </ion-scroll>
         </ion-row>
 
         <!-- Teachers List -->
         <ion-slides>
           <ion-slide>
-            <ion-card>
-              <img src="https://placehold.co/100x100" alt="Cassie Valdez" />
+            <ion-card style="position: relative; overflow: hidden;">
+              <img src="https://img.freepik.com/free-photo/bright-neon-colors-shining-wild-chameleon_23-2151682779.jpg"
+                alt="Cassie Valdez" />
               <ion-card-header>
                 <ion-card-title>Cassie Valdez</ion-card-title>
                 <ion-card-subtitle>Biology</ion-card-subtitle>
               </ion-card-header>
-            </ion-card>
-          </ion-slide>
-          <ion-slide>
-            <ion-card>
-              <img src="https://placehold.co/100x100" alt="Paul Simons" />
-              <ion-card-header>
-                <ion-card-title>Paul Simons</ion-card-title>
-                <ion-card-subtitle>Chemistry</ion-card-subtitle>
-              </ion-card-header>
-            </ion-card>
-          </ion-slide>
-          <ion-slide>
-            <ion-card>
-              <img src="https://placehold.co/100x100" alt="Graham Osi" />
-              <ion-card-header>
-                <ion-card-title>Graham Osi</ion-card-title>
-                <ion-card-subtitle>Physics</ion-card-subtitle>
-              </ion-card-header>
+
+              <!-- Ikon Pensil dan Mata -->
+              <div style="
+                  display: flex;
+                  gap: 8px;
+                  padding: 10px;
+                ">
+
+                <ion-button size="small" color="danger" fill="outline" (click)="openDelete(true)">
+                  Delete
+                  <ion-icon slot="end" name="trash"></ion-icon>
+                </ion-button>
+                <ion-action-sheet [isOpen]="isActionSheetOpen" header="Actions" [buttons]="actionSheetButtons"
+                  (didDismiss)="openDelete(false)"></ion-action-sheet>
+
+
+                <ion-button size="small" fill="outline" (click)="openModalEdit()">
+                  Edit
+                  <ion-icon slot="end" name="create"></ion-icon>
+                </ion-button>
+                <ion-button color="medium" size="small" fill="outline" (click)="openModalDetail()">
+                  Detail
+                  <ion-icon slot="end" name="eye"></ion-icon>
+                </ion-button>
+              </div>
             </ion-card>
           </ion-slide>
         </ion-slides>
-      </ion-col>
-    </ion-row>
-
-    <!-- Popular Institutions -->
-    <ion-row style="margin: 10px;">
-      <ion-col>
-        <ion-row class="ion-align-items-center ion-justify-content-between mb-4">
-          <ion-col size="auto">
-            <h2 class="ion-text-uppercase ion-font-bold">
-              Popular Institutions
-            </h2>
-          </ion-col>
-          <ion-col size="auto" class="ion-text-right">
-            <ion-button fill="clear">
-              <ion-icon name="funnel-outline"></ion-icon>
-            </ion-button>
-          </ion-col>
-        </ion-row>
-
-        <!-- Institution Categories -->
-        <ion-row>
-          <ion-button expand="block" size="small" shape="round" color="tertiary">Island</ion-button>
-          <ion-button expand="block" size="small" shape="round" fill="outline" color="tertiary">Province</ion-button>
-          <ion-button expand="block" size="small" shape="round" fill="outline" color="tertiary">Districts</ion-button>
-        </ion-row>
-
-        <!-- Institutions List -->
-        <ion-card>
-          <ion-item lines="none">
-            <ion-avatar slot="start">
-              <img src="https://placehold.co/50x50" alt="Victory College logo" />
-            </ion-avatar>
-            <ion-label>
-              <h2>Victory College</h2>
-              <ion-note color="warning"> ★★★★☆ 4.5 (413) </ion-note>
-            </ion-label>
-          </ion-item>
-          <ion-card-content>
-            Bio Science
-            <p class="ion-text-wrap">
-              Studying how CBD awareness and availability as it relates to pain
-              management alternatives.
-            </p>
-          </ion-card-content>
-        </ion-card>
-
-        <ion-card>
-          <ion-item lines="none">
-            <ion-avatar slot="start">
-              <img src="https://placehold.co/50x50" alt="New Montana logo" />
-            </ion-avatar>
-            <ion-label>
-              <h2>New Montana</h2>
-              <ion-note color="warning"> ★★★★☆ 4.1 (354) </ion-note>
-            </ion-label>
-          </ion-item>
-          <ion-card-content>
-            Bio Science
-            <p class="ion-text-wrap">
-              Montana Higher Educational Institute. Gampaha
-              montana.gampaha&#64;gmail.com
-            </p>
-          </ion-card-content>
-        </ion-card>
-
-        <ion-card>
-          <ion-item lines="none">
-            <ion-avatar slot="start">
-              <img src="https://placehold.co/50x50" alt="Susipwan Institute logo" />
-            </ion-avatar>
-            <ion-label>
-              <h2>Susipwan Institute</h2>
-              <ion-note color="warning"> ★★★☆☆ 3.0 (745) </ion-note>
-            </ion-label>
-          </ion-item>
-          <ion-card-content>
-            Bio Science
-            <p class="ion-text-wrap">
-              This is a private higher education center conducting classes for
-              GCE AL Students.
-            </p>
-          </ion-card-content>
-        </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>

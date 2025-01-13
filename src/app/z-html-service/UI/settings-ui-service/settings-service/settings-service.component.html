@@ -1,0 +1,39 @@
+<ion-card-header class="relative bg-gray-200 ion-padding">
+  <div class="ion-text-center ion-margin-top">
+    <div class="profile-container">
+      <img alt="Profile picture of a person wearing a red hat" class="profile-pic" src="https://placehold.co/96x96" />
+      <ion-icon name="pencil-outline" class="edit-icon"></ion-icon>
+    </div>
+    <h1 class="text-xl font-bold ion-margin-top">Puerto Rico</h1>
+    <p class="text-gray-600">youremail&#64;domain.com | +01 234 567 89</p>
+  </div>
+</ion-card-header>
+
+<ion-card-content>
+  <ion-list class="rounded-lg shadow-md ion-margin-bottom">
+    <ion-item routerLink="/page/edit-profile">
+      <ion-icon name="create-outline" slot="start"></ion-icon>
+      <ion-label>Edit profile information</ion-label>
+    </ion-item>
+    <ion-item routerLink="/page/edit-notification">
+      <ion-icon  name="notifications-outline" slot="start"></ion-icon>
+      <ion-label>Notifications</ion-label>
+      <ion-note slot="end" color="primary">ON</ion-note>
+    </ion-item>
+  </ion-list>
+
+  <ion-list class="rounded-lg shadow-md">
+    <ion-item>
+      <ion-icon name="help-circle-outline" slot="start"></ion-icon>
+      <ion-label>Help & Support</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="mail-outline" slot="start"></ion-icon>
+      <ion-label>Contact us</ion-label>
+    </ion-item>
+    <ion-item routerLink="/page/edit-policy">
+      <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+      <ion-label>Privacy policy</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-card-content>

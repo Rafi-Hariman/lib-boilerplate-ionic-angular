@@ -1,0 +1,67 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="ion-no-border">
+    <ion-buttons slot="start">
+      <ion-button (click)="onClickCancel()">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{ isUpdate ? 'Ubah Jadwal Notifikasi' : 'Tambah Jadwal Notifikasi' }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="notifForm" (ngSubmit)="onSubmit()">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" size-md="6">
+          <ion-item>
+            <ion-label position="stacked">Tanggal & Waktu <span class="text-danger">*</span></ion-label>
+            <ion-datetime
+              formControlName="tanggal"
+              placeholder="Pilih tanggal & waktu"
+            ></ion-datetime>
+          </ion-item>
+          <ion-text color="danger" *ngIf="notifForm.get('tanggal')?.invalid && notifForm.get('tanggal')?.touched">
+            Harap pilih tanggal & waktu!
+          </ion-text>
+        </ion-col>
+        <ion-col size="12" size-md="6">
+          <ion-item>
+            <ion-label position="stacked">Schedule <span class="text-danger">*</span></ion-label>
+            <ion-select formControlName="schedule" placeholder="-- Pilih schedule obat --">
+              <ion-select-option *ngFor="let schedule of scheduleList" [value]="schedule">
+                {{ schedule }}
+              </ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-text color="danger" *ngIf="notifForm.get('schedule')?.invalid && notifForm.get('schedule')?.touched">
+            Harap pilih schedule!
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" size-md="4">
+          <ion-item>
+            <ion-label position="stacked">Pesan <span class="text-danger">*</span></ion-label>
+            <ion-input formControlName="pesan_notif" placeholder="Masukkan pesan minum obat"></ion-input>
+          </ion-item>
+          <ion-text color="danger" *ngIf="notifForm.get('pesan_notif')?.invalid && notifForm.get('pesan_notif')?.touched">
+            Harap isi pesan!
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-footer class="ion-no-border" style="padding: 20px;">
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="auto">
+          <ion-button expand="block" color="primary" fill="outline" (click)="onClickCancel()">Batal</ion-button>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-button expand="block" color="primary" type="submit" [disabled]="notifForm.invalid">
+            {{ isUpdate ? 'Update' : 'Tambah' }}
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-footer>
+  </form>
+</ion-content>

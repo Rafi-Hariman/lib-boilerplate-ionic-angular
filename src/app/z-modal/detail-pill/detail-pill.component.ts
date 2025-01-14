@@ -14,7 +14,6 @@ export class DetailPillComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log(this.selectedObat);
 
   }
 

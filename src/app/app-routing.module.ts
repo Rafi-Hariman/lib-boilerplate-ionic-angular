@@ -8,6 +8,7 @@ import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.
 import { EditProfileComponent } from './z-html-service/UI/settings-ui-service/edit-profile/edit-profile.component';
 import { SetnotificationComponent } from './z-html-service/UI/settings-ui-service/setnotification/setnotification.component';
 import { PrivacyPoliceComponent } from './z-html-service/UI/settings-ui-service/privacy-police/privacy-police.component';
+import { RingtoneHistoryComponent } from './z-html-service/UI/ringtone-ui-service/ringtone-history/ringtone-history.component';
 
 
 const routes: Routes = [
@@ -51,6 +52,10 @@ const routes: Routes = [
   {
     path: 'page/edit-policy',
     component: PrivacyPoliceComponent,
+  },
+  {
+    path: 'page/riwayat-ringtone',
+    component: RingtoneHistoryComponent,
   },
   {
     path: 'page',

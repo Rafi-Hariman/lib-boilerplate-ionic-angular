@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { initializeApp } from 'firebase/app';
+import { AuthService } from './auth.service';
 
 // Firebase Config
 const firebaseConfig = {
@@ -22,18 +23,20 @@ const app = initializeApp(firebaseConfig);
   providedIn: 'root'
 })
 export class AuthGuardService implements CanActivate {
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+  ) { }
 
   canActivate(): Promise<boolean> {
     return new Promise((resolve) => {
-      const auth = getAuth(app); // Use the initialized app
+      const auth = getAuth(app);
 
       onAuthStateChanged(auth, (user) => {
         if (user) {
-          resolve(true); // User is logged in
+          resolve(true);
         } else {
           console.log('User is not logged in');
-          this.router.navigate(['/login']); // Redirect to login page
+          this.router.navigate(['/login']);
           resolve(false);
         }
       });

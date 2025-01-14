@@ -1,0 +1,72 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start" routerLink="/page/ringtone">
+      <ion-button>
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title style="text-align: end;">Riwayat</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-title style="margin-top: 1em;">
+    Notifikasi Obat
+  </ion-title>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+
+          <ion-card *ngFor="let obat of obatList">
+            <ion-card-content>
+              <ion-item lines="none">
+                <ion-avatar slot="start">
+                  <img [src]="obat.file || 'https://placehold.co/40x40'" alt="{{ obat.nama }}" />
+                </ion-avatar>
+                <ion-label>
+                  <h2>{{ obat.nama }}</h2>
+                  <p>{{ obat.jenis }}</p>
+                  <!-- <p><strong>Schedule:</strong> {{ obat.schedule }}</p> -->
+                  <p><strong>Message:</strong> {{ obat.pesan_notif }}</p>
+                  <p><strong>Date:</strong> {{ obat.tanggal }}</p>
+                </ion-label>
+                <ion-button fill="clear" color="medium" slot="end">
+                  <ion-icon *ngIf="obat.schedule"
+                    style="background-color: green; border-radius: 10px; width: 30px; height: 30px;"
+                    color="light"
+                    name="checkbox">
+                  </ion-icon>
+                  <ion-icon *ngIf="!obat.schedule"
+                    style="background-color: rgb(255, 94, 0); border-radius: 10px; width: 30px; height: 30px;"
+                    color="light"
+                    name="hourglass">
+                  </ion-icon>
+                </ion-button>
+              </ion-item>
+            </ion-card-content>
+          </ion-card>
+
+
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-toolbar class="ion-no-border" style="padding: 0 20px;">
+    <ion-grid class="ion-no-padding">
+      <ion-row>
+        <ion-col size="6">
+          <ion-button expand="block" color="light" (click)="exportToPDF()">
+            PDF
+          </ion-button>
+        </ion-col>
+        <ion-col size="6">
+          <ion-button expand="block" color="primary" (click)="exportToExcel()">
+            Excel
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>
+

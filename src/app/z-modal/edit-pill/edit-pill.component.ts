@@ -104,7 +104,6 @@ export class EditPillComponent implements OnInit {
     }
 
     ngOnInit() {
-      console.log('Selected Obat:', this.selectedObat);
       this.initForm();
     }
 

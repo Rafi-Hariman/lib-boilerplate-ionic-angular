@@ -38,6 +38,9 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { provideFirestore } from '@angular/fire/firestore';
 import { getFirestore } from 'firebase/firestore';
 import { TimeDateService } from '../z-service/data/time-date.service';
+import { ModalSetnotifComponent } from '../z-modal/modal-setnotif/modal-setnotif.component';
+import { ModalsetringtoneComponent } from '../z-modal/modalsetringtone/modalsetringtone.component';
+import { RingtoneHistoryComponent } from './UI/ringtone-ui-service/ringtone-history/ringtone-history.component';
 
 
 @NgModule({
@@ -46,6 +49,7 @@ import { TimeDateService } from '../z-service/data/time-date.service';
     SettingsServiceComponent,
     PrivacyPoliceComponent,
     RingtoneServiceComponent,
+    ModalSetnotifComponent,
     EditPillComponent,
     AddPillComponent,
     DetailPillComponent,
@@ -58,6 +62,8 @@ import { TimeDateService } from '../z-service/data/time-date.service';
     FabComponent,
     RegisterComponent,
     LoginComponent,
+    RingtoneHistoryComponent,
+    ModalsetringtoneComponent,
     VarifyEmailComponent,
     BreadcrumbsComponent,
     ForgotPasswordComponent,
@@ -78,6 +84,7 @@ import { TimeDateService } from '../z-service/data/time-date.service';
     SettingsServiceComponent,
     PrivacyPoliceComponent,
     RingtoneServiceComponent,
+    ModalSetnotifComponent,
     EditPillComponent,
     AddPillComponent,
     DetailPillComponent,
@@ -87,6 +94,8 @@ import { TimeDateService } from '../z-service/data/time-date.service';
     FabComponent,
     RegisterComponent,
     LoginComponent,
+    RingtoneHistoryComponent,
+    ModalsetringtoneComponent,
     VarifyEmailComponent,
     BreadcrumbsComponent,
     ForgotPasswordComponent,

@@ -1,0 +1,16 @@
+ion-content {
+  --background: #f4f4f4;
+}
+
+.text-danger {
+  color: red;
+}
+
+ion-image {
+  width: 50%;
+  height: 50%;
+}
+
+ion-title {
+  text-align: end;
+}

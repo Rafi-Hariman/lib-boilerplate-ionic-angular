@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../../../z-service/auth/auth.service';
+
 
 @Component({
   selector: 'app-setnotification',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./setnotification.component.scss']
 })
 export class SetnotificationComponent implements OnInit {
+  userProfile: any;
 
-  constructor() { }
+  constructor(
+    private authService: AuthService,
+  ) { }
 
   ngOnInit() {
+
   }
 
 }

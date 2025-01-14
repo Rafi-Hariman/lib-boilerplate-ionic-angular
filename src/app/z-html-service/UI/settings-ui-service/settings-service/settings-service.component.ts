@@ -7,12 +7,16 @@ import { AuthService } from '../../../../z-service/auth/auth.service';
   styleUrls: ['./settings-service.component.css']
 })
 export class SettingsServiceComponent implements OnInit {
+  userProfile: any;
 
   constructor(
     private authService: AuthService,
   ) { }
 
   ngOnInit() {
+    this.authService.getUser().subscribe(user => {
+      this.userProfile = user;
+    })
   }
 
 

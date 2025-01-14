@@ -8,4 +8,9 @@ export interface Obat {
   aturan_minum: string;
   dosis_obat: string;
   frekuensi_minum: string;
+  schedule: string;
+  pesan_notif: string;
+  tanggal: string;
+  displayName?: string;
+  email?: string;
 }

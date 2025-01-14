@@ -41,7 +41,7 @@ export class HeaderComponent implements OnInit {
         break;
       case 'ringtone':
         this.pageTitle = 'Ringtone';
-        this.pageInfo = 'Music';
+        this.pageInfo = 'Notification';
         break;
       case 'settings':
         this.pageTitle = 'Settings';

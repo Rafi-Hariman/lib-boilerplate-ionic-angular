@@ -17,8 +17,8 @@ export class AppComponent implements OnInit {
     private notificationService: NotificationService) { }
 
   ngOnInit() {
-    this.requestPermission();
-    this.listen();
+    // this.requestPermission();
+    // this.listen();
   }
 
   requestPermission() {

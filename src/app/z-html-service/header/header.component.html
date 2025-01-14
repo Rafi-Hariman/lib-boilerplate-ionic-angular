@@ -9,9 +9,9 @@
     <ion-buttons slot="end" routerLink="/page/settings">
       <ion-chip style="background-color: white;">
         <ion-avatar>
-          <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+          <img alt="Silhouette of a person's head" [src]="userProfile?.photoURL" />
         </ion-avatar>
-        <ion-label>Chip Avatar</ion-label>
+        <ion-label>{{userProfile?.displayName}}</ion-label>
       </ion-chip>
     </ion-buttons>
   </ion-toolbar>

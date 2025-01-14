@@ -8,3 +8,16 @@
 .horizontal-scroll ion-button {
   margin-right: 8px;
 }
+
+.card-image {
+  width: 550px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+}
+
+ion-card {
+  --background : #f4f4f4;
+}

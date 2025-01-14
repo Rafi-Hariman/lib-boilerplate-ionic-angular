@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../../../z-service/auth/auth.service';
 
 @Component({
   selector: 'app-settings-service',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SettingsServiceComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private authService: AuthService,
+  ) { }
 
   ngOnInit() {
+  }
+
+
+  logout() {
+    this.authService.logout();
   }
 
 }

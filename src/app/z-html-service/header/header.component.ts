@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { AuthService } from '../../z-service/auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -13,9 +14,11 @@ export class HeaderComponent implements OnInit {
   isOpen = false;
   pageTitle: string = '';
   pageInfo: string = '';
+  userProfile: any;
 
   constructor(
     private router: Router,
+    private authSvc: AuthService
   ) {}
 
   ngOnInit() {
@@ -23,6 +26,9 @@ export class HeaderComponent implements OnInit {
       filter(event => event instanceof NavigationEnd)
     ).subscribe(() => {
       this.setPageTitle();
+    });
+    this.authSvc.getUser().subscribe((user) => {
+      this.userProfile = user;
     });
   }
 

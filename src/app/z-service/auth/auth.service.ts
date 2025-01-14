@@ -4,6 +4,7 @@ import { GoogleAuthProvider, GithubAuthProvider, FacebookAuthProvider } from '@a
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { ToastService } from '../html/toast.service';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -93,6 +94,10 @@ export class AuthService {
     }, err => {
       this.toastService.presentToast('Email sudah dipakai', 'warning', 'top', 1800);
     })
+  }
+
+  getUser(): Observable<any> {
+    return this.fireauth.authState;
   }
 
 }

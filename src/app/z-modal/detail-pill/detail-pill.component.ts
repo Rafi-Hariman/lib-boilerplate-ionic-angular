@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-detail-pill',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./detail-pill.component.css']
 })
 export class DetailPillComponent implements OnInit {
+  @Input() selectedObat: any;
 
-  constructor() { }
+  constructor(
+    private modalController: ModalController,
+  ) { }
 
   ngOnInit() {
+
+  }
+
+  onClose() {
+    this.modalController.dismiss();
   }
 
 }

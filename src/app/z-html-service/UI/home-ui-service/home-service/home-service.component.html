@@ -3,7 +3,7 @@
     <!-- Header -->
     <ion-row class="ion-align-items-center ion-justify-content-between mb-4" style="margin: 0 7px;">
       <ion-col size="auto">
-        <p class="ion-text-sm ion-text-gray">12:00</p>
+        <p class="ion-text-sm ion-text-gray">{{currentTime}}</p>
       </ion-col>
       <ion-col size="auto" class="ion-text-right">
         <ion-button (click)="openModal()" color="primary" fill="outline">
@@ -14,49 +14,51 @@
     </ion-row>
 
     <!-- Greeting -->
-    <ion-row style="
-        background: #e7e5e5;
-        border-radius: 9px;
-        box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
-        margin: 10px;
-        padding: 8px;
-      " class="ion-align-items-center ion-justify-content-between mb-4">
-      <ion-col>
-        <h1 class="ion-text-uppercase ion-font-bold ion-text-tertiary">
-          Good evening!
-        </h1>
-        <p class="ion-text-gray">Hardline Scott</p>
-      </ion-col>
-      <ion-col size="auto">
-        <ion-avatar>
-          <img src="https://placehold.co/50x50" alt="Profile picture of Hardline Scott" />
-        </ion-avatar>
-      </ion-col>
-    </ion-row>
-
-    <!-- Search Bar -->
+    <ion-row
+    style="
+      background: #e7e5e5;
+      border-radius: 9px;
+      box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+      margin: 10px;
+      padding: 8px;
+    "
+    class="ion-align-items-center ion-justify-content-between mb-4"
+  >
+    <ion-col>
+      <h1 class="ion-text-uppercase ion-font-bold ion-text-tertiary">
+        {{ greetingMessage }}
+      </h1>
+      <p class="ion-text-gray">{{ userProfile?.displayName || 'User' }}</p>
+    </ion-col>
+    <ion-col size="auto">
+      <ion-avatar>
+        <img
+          [src]="userProfile?.photoURL || 'https://placehold.co/50x50'"
+          alt="Profile picture"
+        />
+      </ion-avatar>
+    </ion-col>
+  </ion-row>
     <ion-row>
       <ion-col>
         <ion-item class="ion-shadow ion-rounded">
-          <ion-input placeholder="Search your teacher" type="text"></ion-input>
+          <ion-input [clearInput]="true" placeholder="Cari obat anda" type="text"></ion-input>
           <ion-button slot="end" fill="solid" color="tertiary">
             <ion-icon name="search"></ion-icon>
           </ion-button>
           <ion-button slot="end" fill="clear">
             <ion-icon name="options-outline"></ion-icon>
           </ion-button>
-
-
         </ion-item>
       </ion-col>
     </ion-row>
 
-    <!-- Popular Teachers -->
+
     <ion-row>
       <ion-col>
         <ion-row class="ion-align-items-center ion-justify-content-between mb-4">
           <ion-col size="auto">
-            <h2 class="ion-text-uppercase ion-font-bold">Popular Teachers</h2>
+            <h2 class="ion-text-uppercase ion-font-bold">Jenis Obat</h2>
           </ion-col>
           <ion-col size="auto" class="ion-text-right">
             <ion-button fill="clear">
@@ -68,49 +70,39 @@
         <!-- Categories -->
         <ion-row>
           <ion-scroll scroll-x="true" class="horizontal-scroll">
-            <ion-chip size="small" color="tertiary">Island</ion-chip>
-            <ion-chip size="small" color="tertiary">Province</ion-chip>
-            <ion-chip size="small" color="tertiary">Districts</ion-chip>
-            <ion-chip size="small" color="tertiary">All Subjects</ion-chip>
-            <ion-chip size="small" color="tertiary">Biology</ion-chip>
-            <ion-chip size="small" color="tertiary">Chemistry</ion-chip>
-            <ion-chip size="small" color="tertiary">Physics</ion-chip>
-            <ion-chip size="small" color="tertiary">Science for
-              Technology</ion-chip>
+            <ion-chip
+              *ngFor="let obat of jenisObatList"
+              size="small"
+              color="tertiary">
+              {{ obat }}
+            </ion-chip>
           </ion-scroll>
         </ion-row>
 
+
         <!-- Teachers List -->
         <ion-slides>
-          <ion-slide>
-            <ion-card style="position: relative; overflow: hidden;">
-              <img src="https://img.freepik.com/free-photo/bright-neon-colors-shining-wild-chameleon_23-2151682779.jpg"
-                alt="Cassie Valdez" />
+          <ion-slide >
+            <ion-card *ngFor="let obat of obatList" style="position: relative; overflow: hidden; margin-bottom: 2em;">
+              <img class="card-image" [src]="obat.file" alt="{{ obat.nama }}" />
               <ion-card-header>
-                <ion-card-title>Cassie Valdez</ion-card-title>
-                <ion-card-subtitle>Biology</ion-card-subtitle>
+                <ion-card-title>{{ obat.nama }}</ion-card-title>
+                <ion-card-subtitle>{{ obat.jenis }}</ion-card-subtitle>
               </ion-card-header>
 
               <!-- Ikon Pensil dan Mata -->
-              <div style="
-                  display: flex;
-                  gap: 8px;
-                  padding: 10px;
-                ">
-
-                <ion-button size="small" color="danger" fill="outline" (click)="openDelete(true)">
+              <div style="display: flex; gap: 8px; padding: 10px;">
+                <ion-button size="small" color="danger" fill="outline" (click)="presentActionSheet(obat.id)">
                   Delete
                   <ion-icon slot="end" name="trash"></ion-icon>
                 </ion-button>
-                <ion-action-sheet [isOpen]="isActionSheetOpen" header="Actions" [buttons]="actionSheetButtons"
-                  (didDismiss)="openDelete(false)"></ion-action-sheet>
 
 
-                <ion-button size="small" fill="outline" (click)="openModalEdit()">
+                <ion-button size="small" fill="outline" (click)="openModalEdit(obat.id)">
                   Edit
                   <ion-icon slot="end" name="create"></ion-icon>
                 </ion-button>
-                <ion-button color="medium" size="small" fill="outline" (click)="openModalDetail()">
+                <ion-button color="medium" size="small" fill="outline" (click)="openModalDetail(obat.id)">
                   Detail
                   <ion-icon slot="end" name="eye"></ion-icon>
                 </ion-button>
@@ -118,6 +110,8 @@
             </ion-card>
           </ion-slide>
         </ion-slides>
+
+
       </ion-col>
     </ion-row>
   </ion-grid>

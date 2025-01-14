@@ -27,6 +27,17 @@ import { EditPillComponent } from '../z-modal/edit-pill/edit-pill.component';
 import { AddPillComponent } from '../z-modal/add-pill/add-pill.component';
 import { DeletePillComponent } from '../z-modal/delete-pill/delete-pill.component';
 import { DetailPillComponent } from '../z-modal/detail-pill/detail-pill.component';
+import { UserauthService } from '../z-service/auth/userauth.service';
+import { AuthService } from '../z-service/auth/auth.service';
+import { provideFirebaseApp } from '@angular/fire/app';
+import { provideAuth } from '@angular/fire/auth';
+import { initializeApp } from 'firebase/app';
+import { getAuth } from 'firebase/auth';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { provideFirestore } from '@angular/fire/firestore';
+import { getFirestore } from 'firebase/firestore';
+import { TimeDateService } from '../z-service/data/time-date.service';
 
 
 @NgModule({
@@ -61,8 +72,6 @@ import { DetailPillComponent } from '../z-modal/detail-pill/detail-pill.componen
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-
-
   ],
   exports: [
     FooterComponent,
@@ -91,6 +100,10 @@ import { DetailPillComponent } from '../z-modal/detail-pill/detail-pill.componen
   ],
   providers: [
     ToastService,
+    // UserauthService,
+    AuthService,
+    TimeDateService,
+
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

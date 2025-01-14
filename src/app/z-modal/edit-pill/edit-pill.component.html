@@ -1,67 +1,103 @@
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>Elearning</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content class="ion-padding">
-  <!-- Course Info -->
-  <div class="course-info">
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Testing dan Implementasi</ion-card-title>
-        <ion-card-subtitle>Selasa, 08:50 - 10:30 WIB (K-1 H.21)</ion-card-subtitle>
-      </ion-card-header>
-    </ion-card>
+  <div class="ion-text-center">
+    <h1 class="ion-text-uppercase ion-margin-bottom">Ubah obat</h1>
   </div>
+  <form [formGroup]="obatForm" (ngSubmit)="onSubmit()">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" size-md="6">
+          <ion-item>
+            <ion-label position="stacked">Nama<span class="text-danger">*</span></ion-label>
+            <ion-input placeholder="-- Ketik nama --" formControlName="nama" value="nama" required></ion-input>
+            <ion-note slot="helper">Some info text goes here.</ion-note>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12" size-md="6">
+          <ion-item>
+            <ion-label position="stacked">Jenis <span class="text-danger">*</span></ion-label>
+            <ion-select formControlName="jenis" placeholder="-- Pilih Jenis Obat --" required>
+              <ion-select-option *ngFor="let jenis of jenisObatList" [value]="jenis">
+                {{ jenis }}
+              </ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" size-md="4">
+          <ion-item>
+            <ion-label position="stacked">Deskripsi</ion-label>
+            <ion-input formControlName="deskripsi" placeholder="-- Masukan Deskripsi Obat --"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="stacked">File field</ion-label>
+            <input
+              type="file"
+              accept="image/jpeg, image/jpg"
+              (change)="onFileSelected($event)"
+              class="file-input"
+              #fileInput
+            />
+            <ion-button slot="end" color="light" (click)="onClearImage()">Clear</ion-button>
+            <!-- <ion-chip slot="end" color="danger" (click)="onClearImage()">Clear</ion-chip> -->
+          </ion-item>
 
-  <!-- Task Details -->
-  <div class="task-details">
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Tugas Kelompok <ion-icon name="checkmark-circle" color="success"></ion-icon></ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p>
-          Jelaskan tugas dari tester dan gambarkan proses dari tahap tester melakukan pengujian program.
-        </p>
-        <ion-button fill="clear" size="small" color="primary" class="download-button">
-          <ion-icon slot="start" name="download"></ion-icon>
-          Download Materi
-        </ion-button>
-        <div class="dates">
-          <p><strong>Dimulai:</strong> Selasa, 26 Oktober 2021, 12:00 WIB</p>
-          <p><strong>Berakhir:</strong> Minggu, 31 Oktober 2021, 12:00 WIB</p>
-        </div>
-      </ion-card-content>
-    </ion-card>
-  </div>
+          <ion-img *ngIf="obatForm.get('file')?.value" [src]="obatForm.get('file')?.value"></ion-img>
 
-  <!-- Submission Status -->
-  <div class="submission-status">
-    <h3>Status Pengumpulan</h3>
-    <ion-card>
-      <ion-card-content>
-        <ion-item lines="none" class="drop-area">
-          <ion-icon name="cloud-upload-outline" slot="start" size="large"></ion-icon>
-          <ion-label>
-            <h4>Drop files here</h4>
-            <p>or use the "New" button.</p>
-          </ion-label>
-        </ion-item>
-      </ion-card-content>
-    </ion-card>
-  </div>
 
-  <!-- Buttons -->
-  <div class="action-buttons">
-    <ion-button expand="block" color="medium" fill="outline" (click)="onClickCancel()">Batal</ion-button>
-    <ion-button expand="block" color="primary">Simpan</ion-button>
-  </div>
-
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="stacked">Dosis</ion-label>
+            <ion-select formControlName="dosis_obat" placeholder="-- Pilih dosis --" required>
+              <ion-select-option *ngFor="let dosis_obat of dosisObatList" [value]="dosis_obat">
+                {{ dosis_obat }}
+              </ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="stacked">Aturan minum</ion-label>
+            <ion-select formControlName="aturan_minum" placeholder="-- Pilih aturan minum --" required>
+              <ion-select-option *ngFor="let aturan_minum of aturanMinumList" [value]="aturan_minum">
+                {{ aturan_minum }}
+              </ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="stacked">Frekuensi minum</ion-label>
+            <ion-select formControlName="frekuensi_minum" placeholder="-- Pilih frekuensi minum --" required>
+              <ion-select-option *ngFor="let frekuensi_minum of frekuensiMinumList" [value]="frekuensi_minum">
+                {{ frekuensi_minum }}
+              </ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
 </ion-content>
+<ion-footer class="ion-no-border" style="padding: 20px;">
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="auto">
+      <ion-button expand="block" color="primary" fill="outline" (click)="onClickCancel()">Batal</ion-button>
+    </ion-col>
+    <ion-col size="auto">
+      <ion-button expand="block" color="primary" type="submit" [disabled]="obatForm.invalid" (click)="onSubmit()">Simpan</ion-button>
+    </ion-col>
 
-
-
-
-
+  </ion-row>
+</ion-footer>

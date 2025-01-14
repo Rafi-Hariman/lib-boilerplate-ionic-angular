@@ -20,7 +20,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { LandingComponent } from './auth/landing/landing.component';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
-import { getAuth, provideAuth } from '@angular/fire/auth';
+import { AuthModule, getAuth, provideAuth } from '@angular/fire/auth';
 import { getAnalytics, provideAnalytics, ScreenTrackingService, UserTrackingService } from '@angular/fire/analytics';
 import { initializeAppCheck, ReCaptchaEnterpriseProvider, provideAppCheck } from '@angular/fire/app-check';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
@@ -36,6 +36,10 @@ import { AuthGuardService } from './z-service/auth/auth-guard.service';
 import { FcmTokenService } from './z-service/token/fcm-token.service';
 import { AngularFireMessagingModule } from '@angular/fire/compat/messaging';
 import { NotificationService } from './z-service/notif/notification.service';
+import { ApiFirebaseService } from './z-service/firebase/api-firebase.service';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { UserauthService } from './z-service/auth/userauth.service';
+
 
 @NgModule({
   declarations: [
@@ -50,6 +54,8 @@ import { NotificationService } from './z-service/notif/notification.service';
     AppRoutingModule,
     HtmlModule,
     AngularFireMessagingModule,
+    AuthModule,
+    AngularFireAuthModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
       registrationStrategy: 'registerWhenStable:30000',
@@ -67,13 +73,15 @@ import { NotificationService } from './z-service/notif/notification.service';
     AuthGuardService,
     DataService,
     FirebaseService,
+    ApiFirebaseService,
     FcmTokenService,
     NotificationService,
-    provideFirebaseApp(() => initializeApp({"projectId":"lib-pill-notification-angular","appId":"1:392629802330:web:221efc5a8afd0565470f63","databaseURL":"https://lib-pill-notification-angular-default-rtdb.asia-southeast1.firebasedatabase.app","storageBucket":"lib-pill-notification-angular.firebasestorage.app","apiKey":"AIzaSyCJ14cjEAtXP2-9L84FmJ_R0RuYSuRh8rI","authDomain":"lib-pill-notification-angular.firebaseapp.com","messagingSenderId":"392629802330","measurementId":"G-RX5QSJK4YQ"})),
+    // provideFirebaseApp(() => initializeApp({"projectId":"lib-pill-notification-angular","appId":"1:392629802330:web:221efc5a8afd0565470f63","databaseURL":"https://lib-pill-notification-angular-default-rtdb.asia-southeast1.firebasedatabase.app","storageBucket":"lib-pill-notification-angular.firebasestorage.app","apiKey":"AIzaSyCJ14cjEAtXP2-9L84FmJ_R0RuYSuRh8rI","authDomain":"lib-pill-notification-angular.firebaseapp.com","messagingSenderId":"392629802330","measurementId":"G-RX5QSJK4YQ"})),
     provideAuth(() => getAuth()),
     provideAnalytics(() => getAnalytics()),
     ScreenTrackingService,
     UserTrackingService,
+    UserauthService,
     // provideAppCheck(() => {
     //   // TODO get a reCAPTCHA Enterprise here https://console.cloud.google.com/security/recaptcha?project=_
     //   const provider = new ReCaptchaEnterpriseProvider(/* reCAPTCHA Enterprise site key */);

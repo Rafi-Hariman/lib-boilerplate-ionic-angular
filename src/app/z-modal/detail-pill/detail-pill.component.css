@@ -1,0 +1,43 @@
+.image-full {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.ml-1 {
+  margin-left: 4px;
+}
+
+.text-muted {
+  color: var(--ion-color-medium);
+}
+
+.icon-circle {
+  font-size: 24px;
+  background: var(--ion-color-light);
+  padding: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  text-align: center;
+}
+
+.price-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.text-large {
+  font-size: 1.5rem;
+}
+
+.font-semibold {
+  font-weight: 600;
+}

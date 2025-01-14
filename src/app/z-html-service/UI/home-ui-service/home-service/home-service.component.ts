@@ -7,7 +7,6 @@ import { EditPillComponent } from '../../../../z-modal/edit-pill/edit-pill.compo
 import { Obat } from '../../../../z-model/obat';
 import { ApiFirebaseService } from '../../../../z-service/firebase/api-firebase.service';
 import { ToastService } from '../../../../z-service/html/toast.service';
-import { UserauthService } from '../../../../z-service/auth/userauth.service';
 import { AuthService } from '../../../../z-service/auth/auth.service';
 import { TimeDateService } from '../../../../z-service/data/time-date.service';
 
@@ -19,9 +18,13 @@ import { TimeDateService } from '../../../../z-service/data/time-date.service';
 export class HomeServiceComponent implements OnInit {
 
   obatList: Obat[] = [];
+  selectedJenis: string = 'All';
+  filteredObatList: any[] = [];
+
 
   isActionSheetOpen = false;
   jenisObatList: string[] = [
+    'All',
     'Analgesik',
     'Antibiotik',
     'Antidepresan',
@@ -57,6 +60,7 @@ export class HomeServiceComponent implements OnInit {
   greetingMessage: string = '';
   userProfile: any;
   currentTime: string = '';
+  searchTerm: string = '';
 
   constructor(
     private modalController: ModalController,
@@ -65,19 +69,46 @@ export class HomeServiceComponent implements OnInit {
     private toastService: ToastService,
     private authService: AuthService,
     private timeSvc: TimeDateService,
-    // private authService: UserauthService,
+
 
   ) { }
 
   ngOnInit() {
-    this.apiFireBaseSvc.getAll().subscribe((data) => {
-      this.obatList = data;
-    });
+    this.fetchAllObat();
+    this.applyFilters();
     this.authService.getUser().subscribe((user) => {
       this.userProfile = user;
     });
     this.setGreetingMessage();
     this.currentTime = this.timeSvc.getCurrentTime();
+  }
+
+  fetchAllObat() {
+    this.apiFireBaseSvc.getAll().subscribe((data) => {
+      this.obatList = data;
+      this.filteredObatList = data;
+    });
+  }
+
+
+  onFilterByJenis(jenis: string) {
+    this.selectedJenis = jenis;
+    this.applyFilters();
+  }
+
+
+  onSearchInput(event: any) {
+    this.searchTerm = event.target.value.toLowerCase();
+    this.applyFilters();
+  }
+
+
+  applyFilters() {
+    this.filteredObatList = this.obatList.filter((obat) => {
+      const matchesJenis = this.selectedJenis === 'All' || obat.jenis === this.selectedJenis;
+      const matchesSearch = obat.nama.toLowerCase().includes(this.searchTerm);
+      return matchesJenis && matchesSearch;
+    });
   }
 
   async openModal() {
@@ -156,8 +187,6 @@ export class HomeServiceComponent implements OnInit {
       .catch((error) => {
         this.toastService.presentToast('Gagal hapus data', 'danger', 'top', 1000);
       });
-
-
   }
 
   private setGreetingMessage() {

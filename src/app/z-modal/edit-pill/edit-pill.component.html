@@ -1,7 +1,17 @@
+<!-- <div class="ion-text-center">
+  <h1 class="ion-text-uppercase ion-margin-bottom">Ubah obat</h1>
+</div> -->
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="onClickCancel()">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Ubah</ion-title>
+  </ion-toolbar>
+</ion-header>
 <ion-content class="ion-padding">
-  <div class="ion-text-center">
-    <h1 class="ion-text-uppercase ion-margin-bottom">Ubah obat</h1>
-  </div>
   <form [formGroup]="obatForm" (ngSubmit)="onSubmit()">
     <ion-grid>
       <ion-row>

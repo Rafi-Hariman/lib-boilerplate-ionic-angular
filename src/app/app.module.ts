@@ -38,7 +38,6 @@ import { AngularFireMessagingModule } from '@angular/fire/compat/messaging';
 import { NotificationService } from './z-service/notif/notification.service';
 import { ApiFirebaseService } from './z-service/firebase/api-firebase.service';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { UserauthService } from './z-service/auth/userauth.service';
 
 
 @NgModule({
@@ -81,7 +80,7 @@ import { UserauthService } from './z-service/auth/userauth.service';
     provideAnalytics(() => getAnalytics()),
     ScreenTrackingService,
     UserTrackingService,
-    UserauthService,
+
     // provideAppCheck(() => {
     //   // TODO get a reCAPTCHA Enterprise here https://console.cloud.google.com/security/recaptcha?project=_
     //   const provider = new ReCaptchaEnterpriseProvider(/* reCAPTCHA Enterprise site key */);

@@ -34,4 +34,10 @@ export class ApiFirebaseService {
       .valueChanges();
   }
 
+  getByJenis(jenis: string) {
+    return this.firestore
+      .collection<Obat>(this.dbPath, (ref) => ref.where('jenis', '==', jenis))
+      .valueChanges({ idField: 'id' });
+  }
+
 }

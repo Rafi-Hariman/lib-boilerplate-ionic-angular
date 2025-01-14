@@ -27,7 +27,7 @@ import { EditPillComponent } from '../z-modal/edit-pill/edit-pill.component';
 import { AddPillComponent } from '../z-modal/add-pill/add-pill.component';
 import { DeletePillComponent } from '../z-modal/delete-pill/delete-pill.component';
 import { DetailPillComponent } from '../z-modal/detail-pill/detail-pill.component';
-import { UserauthService } from '../z-service/auth/userauth.service';
+
 import { AuthService } from '../z-service/auth/auth.service';
 import { provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth } from '@angular/fire/auth';

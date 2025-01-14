@@ -41,3 +41,7 @@
 .font-semibold {
   font-weight: 600;
 }
+
+ion-title {
+  text-align: end;
+}

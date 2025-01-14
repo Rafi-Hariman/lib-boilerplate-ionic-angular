@@ -40,6 +40,16 @@ export class HomeServiceComponent implements OnInit {
     'Obat Diabetes',
     'Obat Gastrointestinal',
     'Obat Neurologis',
+    'Obat Tambah Darah',
+    'Obat Tidur',
+    'Obat Tumor',
+    'Obat Wasir',
+    'Obat Mata',
+    'Obat Kulit',
+    'Obat Telinga',
+    'Obat Hidung',
+    'Obat Gigi',
+    'Obat Kanker',
   ];
   public actionSheetButtons = [
     {

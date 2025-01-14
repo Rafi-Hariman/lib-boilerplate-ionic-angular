@@ -20,6 +20,7 @@ export class AddPillComponent implements OnInit {
 
 
   jenisObatList: string[] = [
+    'All',
     'Analgesik',
     'Antibiotik',
     'Antidepresan',
@@ -35,6 +36,16 @@ export class AddPillComponent implements OnInit {
     'Obat Diabetes',
     'Obat Gastrointestinal',
     'Obat Neurologis',
+    'Obat Tambah Darah',
+    'Obat Tidur',
+    'Obat Tumor',
+    'Obat Wasir',
+    'Obat Mata',
+    'Obat Kulit',
+    'Obat Telinga',
+    'Obat Hidung',
+    'Obat Gigi',
+    'Obat Kanker',
   ];
 
   dosisObatList: string[] = [
@@ -82,6 +93,9 @@ export class AddPillComponent implements OnInit {
     '2 kali sehari',
     '3 kali sehari',
     '4 kali sehari',
+    '5 kali sehari',
+    '6 kali sehari',
+    '1 Minggu sehari',
     'Setiap 6 jam',
     'Setiap 8 jam',
     'Setiap 12 jam',

@@ -16,8 +16,6 @@ export class ModalSetnotifComponent implements OnInit {
   @Input() existingSchedule: any;
   isUpdate: boolean = false;
 
-
-
   scheduleList: string[] = [
     '1 Hari Sekali',
     '2 Hari Sekali',
@@ -66,7 +64,6 @@ export class ModalSetnotifComponent implements OnInit {
     '1 Minggu 4 Kali',
     '1 Minggu 5 Kali',
   ];
-
 
   notifForm: FormGroup;
 
@@ -121,14 +118,12 @@ export class ModalSetnotifComponent implements OnInit {
     const formData = this.notifForm.value;
 
     if (this.isUpdate) {
-      // Update data menggunakan ID
       this.obatService.update(this.selectedObat.id, formData).then(() => {
         this.toastService.presentToast('Notifikasi berhasil diperbarui', 'success', 'top', 1000);
         this.modalController.dismiss({ updated: true });
       });
     }
-     else {
-      // Tambah data baru
+    else {
       this.obatService.update(this.selectedObat.id, formData).then(() => {
         this.toastService.presentToast('Notifikasi berhasil ditambah', 'success', 'top', 1000);
         this.modalController.dismiss({ added: true });

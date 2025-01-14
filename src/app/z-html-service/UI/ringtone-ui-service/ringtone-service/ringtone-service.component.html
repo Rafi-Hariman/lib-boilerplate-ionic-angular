@@ -39,7 +39,9 @@
           <ion-icon *ngIf="obat.schedule" slot="start" name="create-outline"></ion-icon>
           Notifikasi
         </ion-button>
-        <ion-button *ngIf="obat?.tanggal" size="small" color="light" >{{obat?.tanggal | date: 'full'}}</ion-button>
+        <ion-button *ngIf="obat?.tanggal" size="small" color="light">
+          {{ obat?.tanggal | date: 'HH:mm:ss' }}
+        </ion-button>
       </div>
 
 

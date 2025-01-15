@@ -13,4 +13,11 @@ export interface Obat {
   tanggal: string;
   displayName?: string;
   email?: string;
+
+  response: {
+    label: string;
+    question: string;
+    value: any;
+    questionIndex: any;
+  }[];
 }

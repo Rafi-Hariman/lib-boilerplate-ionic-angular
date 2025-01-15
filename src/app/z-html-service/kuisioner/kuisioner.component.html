@@ -14,7 +14,8 @@
     <ion-card-header>
       <div style="display: flex; justify-content: space-between; align-items: center;">
         <ion-card-title>
-          <span class="ion-text-blue ion-margin-end">{{item?.nama}}</span>  <span class="ion-text-gray">{{item?.jenis}}</span>
+          <span class="ion-text-blue ion-margin-end">{{item?.nama}}</span> <span
+            class="ion-text-gray">{{item?.jenis}}</span>
         </ion-card-title>
         <ion-avatar>
           <img alt="Silhouette of a person's head" [src]="item?.file" />
@@ -26,10 +27,27 @@
         <h2>{{item?.aturan_minum}}</h2>
         <p>{{item?.dosis_obat}}</p>
       </div>
-      <div>
-        <ion-chip fill="solid" color="primary" size="small" (click)="onCetakKuisioner(item.id)">Buat Kuisioner</ion-chip>
+      <div style="display: flex; justify-content: space-between;">
+        <ion-chip *ngIf="!item.response" fill="solid" color="primary" size="small"
+          (click)="onCetakKuisioner(item.id)">Jawab</ion-chip>
+        <ion-chip *ngIf="item.response" fill="solid" color="success" size="small"
+          (click)="onDetailKuisioner(item.id)">Lihat</ion-chip>
       </div>
     </ion-card-content>
   </ion-card>
 
 </ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar class="ion-no-border">
+    <!-- <div style="display: flex;justify-content: space-between;"> -->
+      <ion-button fill="clear" color="primary" shape="round" (click)="onCancel()">Kembali</ion-button>
+      <ion-button slot="end" fill="solid" color="primary" shape="round" (click)="onExport('pdf')">
+        PDF
+      </ion-button>
+      <ion-button slot="end" fill="solid" color="secondary" shape="round" (click)="onExport('excel')">
+        Excel
+      </ion-button>
+    <!-- </div> -->
+  </ion-toolbar>
+</ion-footer>

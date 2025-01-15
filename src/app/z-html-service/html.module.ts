@@ -43,6 +43,7 @@ import { ModalsetringtoneComponent } from '../z-modal/modalsetringtone/modalsetr
 import { RingtoneHistoryComponent } from './UI/ringtone-ui-service/ringtone-history/ringtone-history.component';
 import { KuisionerComponent } from './kuisioner/kuisioner.component';
 import { CetakKuisionerComponent } from './kuisioner/cetak-kuisioner/cetak-kuisioner.component';
+import { DetailKuisionerComponent } from './kuisioner/detail-kuisioner/detail-kuisioner.component';
 
 
 @NgModule({
@@ -73,6 +74,7 @@ import { CetakKuisionerComponent } from './kuisioner/cetak-kuisioner/cetak-kuisi
     HomeServiceComponent,
     KuisionerComponent,
     CetakKuisionerComponent,
+    DetailKuisionerComponent,
     EditProfileComponent,
 
   ],
@@ -107,6 +109,7 @@ import { CetakKuisionerComponent } from './kuisioner/cetak-kuisioner/cetak-kuisi
     HomeServiceComponent,
     KuisionerComponent,
     CetakKuisionerComponent,
+    DetailKuisionerComponent,
     EditProfileComponent,
     HeaderComponent,
     LoaderComponent,

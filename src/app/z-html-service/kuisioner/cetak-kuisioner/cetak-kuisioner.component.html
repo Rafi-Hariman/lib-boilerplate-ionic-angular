@@ -1,123 +1,66 @@
 <ion-header class="ion-no-border">
-  <ion-toolbar class="ion-no-border">
-    <ion-buttons slot="start" (click)="onCloseModal()">
-      <ion-button>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="onCloseModal()">
         <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title slot="end">{{selectedObat?.jenis}}</ion-title>
+    <ion-title slot="end">{{ selectedObat?.jenis }}</ion-title>
   </ion-toolbar>
 </ion-header>
+
 <ion-content class="ion-padding" style="background-color: #f8f4eb">
-  <ion-card
-    style="
-      background: url('/assets/core/1.png') no-repeat center center;
-      background-size: cover;
-    "
-  >
-    <div
-      class="ion-position-absolute ion-inset-0"
-      style="background-color: rgba(255, 255, 255, 0.7); border-radius: 8px"
-    ></div>
-    <ion-card-content
-      class="ion-text-center ion-position-relative"
-      style="z-index: 10"
-    >
-      <ion-chip color="tertiary"
-        class="ion-text-large ion-margin-bottom"
-        style="
-          font-family: 'Nunito', sans-serif;
-          font-weight: bold;
-          color: black;
-        "
-      >
+  <ion-card style="background-color: rgba(255, 255, 255, 0.7); border-radius: 8px;background: url('/assets/core/1.png') no-repeat center center;
+  background-size: cover;">
+    <ion-card-content class="ion-text-center">
+      <ion-chip color="tertiary" style="font-family: 'Nunito', sans-serif; font-weight: bold;">
         SURVEY
       </ion-chip>
-      <p
-        class="ion-text-medium"
-        style="
-          font-family: 'Nunito', sans-serif;
-          font-weight: bold;
-          color: black;
-          font-size: 1.6em;
-        "
-      >
-        Apakah saudari minum 1 tablet {{selectedObat?.nama}} dalam seminggu?
+      <p style="color: black; font-family: 'Nunito', sans-serif; font-weight: bold; font-size: 1.6em;">
+        {{ questions[currentQuestionIndex].text }}
       </p>
     </ion-card-content>
   </ion-card>
+
   <ion-card-content>
-    <div class="ion-margin-bottom ion-text-center">
-      <ion-segment [scrollable]="true" value="buttons">
-        <ion-segment-button value="1">
-          <ion-chip fill="solid" color="danger">1</ion-chip>
-        </ion-segment-button>
-        <ion-segment-button value="2">
-          <ion-chip fill="solid" color="warning">2</ion-chip>
-        </ion-segment-button>
-        <ion-segment-button value="3">
-          <ion-chip fill="solid" color="primary">3</ion-chip>
-        </ion-segment-button>
-        <ion-segment-button value="4">
-          <ion-chip fill="solid" color="success">4</ion-chip>
-        </ion-segment-button>
-      </ion-segment>
-    </div>
-    <div style="display: flex; justify-content: space-between; gap: 10px">
-      <ion-button
-        fill="solid"
-        color="light"
-        size="small"
-        (click)="onPrevious()"
-      >
-        <ion-icon name="chevron-back-outline"></ion-icon>
-        Previous
-      </ion-button>
-      <ion-button fill="solid" color="primary" size="small" (click)="onNext()"
-        >Next</ion-button
-      >
-    </div>
+    <ion-segment (ionChange)="onRatingChange($event)" [value]="getResponseValue(currentQuestionIndex)">
+      <ion-segment-button *ngFor="let option of questions[currentQuestionIndex]?.options" [value]="option.value">
+        <ion-chip fill="solid" [color]="option.color">{{ option.value }}</ion-chip>
+      </ion-segment-button>
+    </ion-segment>
   </ion-card-content>
-  <div>
-    <ion-list>
-      <ion-list-header>
-        <ion-label>Ketentuan</ion-label>
-      </ion-list-header>
-      <ion-item>
-        <ion-label>Tidak Pernah</ion-label>
-        <ion-chip slot="end" fill="solid" color="danger">1</ion-chip>
-      </ion-item>
-      <ion-item>
-        <ion-label>Jarang</ion-label>
-        <ion-chip slot="end" fill="solid" color="warning">2</ion-chip>
-      </ion-item>
-      <ion-item>
-        <ion-label>Sering</ion-label>
-        <ion-chip slot="end" fill="solid" color="primary">3</ion-chip>
-      </ion-item>
-      <ion-item>
-        <ion-label>Selalu</ion-label>
-        <ion-chip slot="end" fill="solid" color="success">4</ion-chip>
-      </ion-item>
-    </ion-list>
+
+  <div style="display: flex;justify-content: space-between;">
+    <ion-button fill="clear" (click)="onPrevious()" [disabled]="currentQuestionIndex === 0">
+      <ion-icon name="chevron-back-outline"></ion-icon>
+      Previous
+    </ion-button>
+    <ion-button fill="clear" (click)="onNext()" [disabled]="currentQuestionIndex === questions.length - 1">
+      Next
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </ion-button>
   </div>
+
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Ketentuan</ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let option of questions[currentQuestionIndex]?.options">
+      <ion-label>{{ option.label }}</ion-label>
+      <ion-chip slot="end" fill="solid" [color]="option.color">{{ option.value }}</ion-chip>
+    </ion-item>
+  </ion-list>
 </ion-content>
+
 <ion-footer class="ion-no-border">
-  <ion-toolbar class="ion-no-border">
-    <div
-      style="
-        display: flex;
-        justify-content: space-between;
-        gap: 10px;
-        padding: 20px;
-      ">
-      <ion-button fill="clear" (click)="onCancel()">
-        <ion-icon name="chevron-back-outline"></ion-icon>
+  <ion-toolbar>
+    <div style="display: flex; justify-content: space-between; padding: 20px;">
+      <ion-button fill="solid" color="light" shape="round" (click)="onCloseModal()">
         Batal
       </ion-button>
-      <ion-button fill="solid" shape="round" color="primary" (click)="onNext()"
-        >Simpan</ion-button
-      >
+      <ion-button fill="solid" color="primary" shape="round" (click)="onClickSave()">
+        Simpan
+      </ion-button>
     </div>
   </ion-toolbar>
 </ion-footer>

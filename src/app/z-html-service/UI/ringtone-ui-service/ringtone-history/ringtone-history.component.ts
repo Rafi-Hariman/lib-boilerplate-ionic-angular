@@ -27,14 +27,12 @@ export class RingtoneHistoryComponent implements OnInit {
         this.displayName = user.displayName || 'Tidak Diketahui';
         this.email = user.email || 'Tidak Diketahui';
       }
-      console.log('user', user);
     });
   }
 
   fetchAllObat() {
     this.apiFireBaseSvc.getAll().subscribe((data) => {
       this.obatList = data;
-      console.log('fetching all obat', this.obatList);
     });
   }
 

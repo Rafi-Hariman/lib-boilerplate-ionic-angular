@@ -2,27 +2,27 @@
   <ion-grid class="ion-padding">
     <ion-row class="ion-justify-content-center">
       <ion-col size-md="6" size-xs="12">
-        <!-- Header -->
+
         <div class="flex items-center ion-margin-bottom">
           <ion-icon (click)="onCloseModal()" name="arrow-back-outline" size="large"></ion-icon>
           <h1 style="text-align: center;" class="text-1xl font-bold">User Profile</h1>
         </div>
 
-        <!-- Form -->
+
         <ion-list>
-          <!-- Full Name -->
+
           <ion-item>
             <ion-label position="stacked">Name</ion-label>
             <ion-input value="{{userProfile?.displayName}}"></ion-input>
           </ion-item>
 
-          <!-- Nick Name -->
+
           <ion-item>
             <ion-label position="stacked">Email verified</ion-label>
             <ion-input [disabled]="true" value="{{userProfile?.emailVerified}}"></ion-input>
           </ion-item>
 
-          <!-- Label -->
+
           <ion-item>
             <ion-label position="stacked">Email</ion-label>
             <ion-input value="{{userProfile?.email}}" type="email"></ion-input>
@@ -64,10 +64,12 @@
   </ion-grid>
 </ion-content>
 
-<ion-footer class="ion-no-border">
-  <ion-toolbar class="ion-no-border">
-    <ion-button expand="block" color="primary" (click)="onCloseModal()">
-      Simpan
-    </ion-button>
-  </ion-toolbar>
-</ion-footer>
+<div style="padding: 20px;">
+  <ion-footer class="ion-no-border">
+    <ion-toolbar class="ion-no-border">
+      <ion-button expand="block" color="primary" (click)="onCloseModal()">
+        Kembali
+      </ion-button>
+    </ion-toolbar>
+  </ion-footer>
+</div>

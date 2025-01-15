@@ -32,7 +32,6 @@ export class RingtoneServiceComponent implements OnInit {
   fetchAllObat() {
     this.apiFireBaseSvc.getAll().subscribe((data) => {
       this.obatList = data;
-      console.log('fetching all obat', this.obatList);
     });
   }
 

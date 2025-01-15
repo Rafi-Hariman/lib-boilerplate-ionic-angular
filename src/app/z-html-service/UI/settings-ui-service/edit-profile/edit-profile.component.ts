@@ -23,7 +23,6 @@ export class EditProfileComponent implements OnInit {
   fetchData() {
     this.authSvc.getUser().subscribe(user => {
       this.userProfile = user;
-      console.log('User Profile:', this.userProfile);
     });
   }
 

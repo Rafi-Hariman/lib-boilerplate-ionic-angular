@@ -41,6 +41,8 @@ import { TimeDateService } from '../z-service/data/time-date.service';
 import { ModalSetnotifComponent } from '../z-modal/modal-setnotif/modal-setnotif.component';
 import { ModalsetringtoneComponent } from '../z-modal/modalsetringtone/modalsetringtone.component';
 import { RingtoneHistoryComponent } from './UI/ringtone-ui-service/ringtone-history/ringtone-history.component';
+import { KuisionerComponent } from './kuisioner/kuisioner.component';
+import { CetakKuisionerComponent } from './kuisioner/cetak-kuisioner/cetak-kuisioner.component';
 
 
 @NgModule({
@@ -69,6 +71,8 @@ import { RingtoneHistoryComponent } from './UI/ringtone-ui-service/ringtone-hist
     ForgotPasswordComponent,
     ResetPasswordComponent,
     HomeServiceComponent,
+    KuisionerComponent,
+    CetakKuisionerComponent,
     EditProfileComponent,
 
   ],
@@ -101,6 +105,8 @@ import { RingtoneHistoryComponent } from './UI/ringtone-ui-service/ringtone-hist
     ForgotPasswordComponent,
     ResetPasswordComponent,
     HomeServiceComponent,
+    KuisionerComponent,
+    CetakKuisionerComponent,
     EditProfileComponent,
     HeaderComponent,
     LoaderComponent,

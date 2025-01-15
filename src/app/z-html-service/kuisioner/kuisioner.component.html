@@ -1,0 +1,35 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="ion-no-border">
+    <ion-buttons slot="start" (click)="onCancel()">
+      <ion-button>
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title slot="end">Kuisioner</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let item of obatList">
+    <ion-card-header>
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <ion-card-title>
+          <span class="ion-text-blue ion-margin-end">{{item?.nama}}</span>  <span class="ion-text-gray">{{item?.jenis}}</span>
+        </ion-card-title>
+        <ion-avatar>
+          <img alt="Silhouette of a person's head" [src]="item?.file" />
+        </ion-avatar>
+      </div>
+    </ion-card-header>
+    <ion-card-content style="display: flex; justify-content: space-between; align-items: center;">
+      <div>
+        <h2>{{item?.aturan_minum}}</h2>
+        <p>{{item?.dosis_obat}}</p>
+      </div>
+      <div>
+        <ion-chip fill="solid" color="primary" size="small" (click)="onCetakKuisioner(item.id)">Buat Kuisioner</ion-chip>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

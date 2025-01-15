@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../../z-service/auth/auth.service';
+import { ModalController } from '@ionic/angular';
+import { EditProfileComponent } from '../edit-profile/edit-profile.component';
 
 @Component({
   selector: 'app-settings-service',
@@ -11,6 +13,7 @@ export class SettingsServiceComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
+    private modalController: ModalController,
   ) { }
 
   ngOnInit() {
@@ -19,6 +22,14 @@ export class SettingsServiceComponent implements OnInit {
     })
   }
 
+  async editProfile() {
+
+    const modal = await this.modalController.create({
+      component: EditProfileComponent,
+
+    });
+    await modal.present();
+  }
 
   logout() {
     this.authService.logout();

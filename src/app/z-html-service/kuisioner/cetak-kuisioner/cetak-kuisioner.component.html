@@ -1,0 +1,123 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="ion-no-border">
+    <ion-buttons slot="start" (click)="onCloseModal()">
+      <ion-button>
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title slot="end">{{selectedObat?.jenis}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding" style="background-color: #f8f4eb">
+  <ion-card
+    style="
+      background: url('/assets/core/1.png') no-repeat center center;
+      background-size: cover;
+    "
+  >
+    <div
+      class="ion-position-absolute ion-inset-0"
+      style="background-color: rgba(255, 255, 255, 0.7); border-radius: 8px"
+    ></div>
+    <ion-card-content
+      class="ion-text-center ion-position-relative"
+      style="z-index: 10"
+    >
+      <ion-chip color="tertiary"
+        class="ion-text-large ion-margin-bottom"
+        style="
+          font-family: 'Nunito', sans-serif;
+          font-weight: bold;
+          color: black;
+        "
+      >
+        SURVEY
+      </ion-chip>
+      <p
+        class="ion-text-medium"
+        style="
+          font-family: 'Nunito', sans-serif;
+          font-weight: bold;
+          color: black;
+          font-size: 1.6em;
+        "
+      >
+        Apakah saudari minum 1 tablet {{selectedObat?.nama}} dalam seminggu?
+      </p>
+    </ion-card-content>
+  </ion-card>
+  <ion-card-content>
+    <div class="ion-margin-bottom ion-text-center">
+      <ion-segment [scrollable]="true" value="buttons">
+        <ion-segment-button value="1">
+          <ion-chip fill="solid" color="danger">1</ion-chip>
+        </ion-segment-button>
+        <ion-segment-button value="2">
+          <ion-chip fill="solid" color="warning">2</ion-chip>
+        </ion-segment-button>
+        <ion-segment-button value="3">
+          <ion-chip fill="solid" color="primary">3</ion-chip>
+        </ion-segment-button>
+        <ion-segment-button value="4">
+          <ion-chip fill="solid" color="success">4</ion-chip>
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+    <div style="display: flex; justify-content: space-between; gap: 10px">
+      <ion-button
+        fill="solid"
+        color="light"
+        size="small"
+        (click)="onPrevious()"
+      >
+        <ion-icon name="chevron-back-outline"></ion-icon>
+        Previous
+      </ion-button>
+      <ion-button fill="solid" color="primary" size="small" (click)="onNext()"
+        >Next</ion-button
+      >
+    </div>
+  </ion-card-content>
+  <div>
+    <ion-list>
+      <ion-list-header>
+        <ion-label>Ketentuan</ion-label>
+      </ion-list-header>
+      <ion-item>
+        <ion-label>Tidak Pernah</ion-label>
+        <ion-chip slot="end" fill="solid" color="danger">1</ion-chip>
+      </ion-item>
+      <ion-item>
+        <ion-label>Jarang</ion-label>
+        <ion-chip slot="end" fill="solid" color="warning">2</ion-chip>
+      </ion-item>
+      <ion-item>
+        <ion-label>Sering</ion-label>
+        <ion-chip slot="end" fill="solid" color="primary">3</ion-chip>
+      </ion-item>
+      <ion-item>
+        <ion-label>Selalu</ion-label>
+        <ion-chip slot="end" fill="solid" color="success">4</ion-chip>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-toolbar class="ion-no-border">
+    <div
+      style="
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 20px;
+      ">
+      <ion-button fill="clear" (click)="onCancel()">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+        Batal
+      </ion-button>
+      <ion-button fill="solid" shape="round" color="primary" (click)="onNext()"
+        >Simpan</ion-button
+      >
+    </div>
+  </ion-toolbar>
+</ion-footer>

@@ -95,7 +95,7 @@ export class EditPillComponent implements OnInit {
     '4 kali sehari',
     '5 kali sehari',
     '6 kali sehari',
-    '1 Minggu sehari',
+    '1 Minggu sekali',
     'Setiap 6 jam',
     'Setiap 8 jam',
     'Setiap 12 jam',

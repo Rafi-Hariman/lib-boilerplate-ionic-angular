@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { AuthService } from '../../../../z-service/auth/auth.service';
 
 @Component({
   selector: 'app-edit-profile',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditProfileComponent implements OnInit {
 
-  constructor() { }
+  @Input() userProfile: any;
+
+  constructor(
+    private modalController: ModalController,
+    private authSvc : AuthService
+  ) { }
 
   ngOnInit() {
+    this.fetchData();
+  }
+
+  fetchData() {
+    this.authSvc.getUser().subscribe(user => {
+      this.userProfile = user;
+      console.log('User Profile:', this.userProfile);
+    });
+  }
+
+  onCloseModal() {
+    this.modalController.dismiss();
   }
 
 }

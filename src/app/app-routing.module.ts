@@ -9,6 +9,8 @@ import { EditProfileComponent } from './z-html-service/UI/settings-ui-service/ed
 import { SetnotificationComponent } from './z-html-service/UI/settings-ui-service/setnotification/setnotification.component';
 import { PrivacyPoliceComponent } from './z-html-service/UI/settings-ui-service/privacy-police/privacy-police.component';
 import { RingtoneHistoryComponent } from './z-html-service/UI/ringtone-ui-service/ringtone-history/ringtone-history.component';
+import { KuisionerComponent } from './z-html-service/kuisioner/kuisioner.component';
+import { CetakKuisionerComponent } from './z-html-service/kuisioner/cetak-kuisioner/cetak-kuisioner.component';
 
 
 const routes: Routes = [
@@ -57,6 +59,14 @@ const routes: Routes = [
     path: 'page/riwayat-ringtone',
     component: RingtoneHistoryComponent,
   },
+  {
+    path: 'page/kuisioner',
+    component: KuisionerComponent,
+  },
+  // {
+  //   path: 'page/cetak-kuisioner',
+  //   component: CetakKuisionerComponent,
+  // },
   {
     path: 'page',
     loadChildren: () => import('../app/tabs/tabs.module').then(m => m.TabsPageModule)

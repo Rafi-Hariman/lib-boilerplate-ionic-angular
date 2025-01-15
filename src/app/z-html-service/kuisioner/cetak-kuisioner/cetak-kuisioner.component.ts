@@ -103,6 +103,10 @@ export class CetakKuisionerComponent implements OnInit {
   }
 
   onClickSave() {
+    if (this.responses.length !== this.questions.length) {
+      this.toastService.presentToast('Silakan jawab semua pertanyaan', 'warning', 'top', 1000);
+      return
+    }
     const payload = {
       nama: this.selectedObat?.nama || '',
       jenis: this.selectedObat?.jenis || '',

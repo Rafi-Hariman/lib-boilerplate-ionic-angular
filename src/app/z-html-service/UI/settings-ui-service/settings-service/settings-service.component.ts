@@ -14,11 +14,17 @@ export class SettingsServiceComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private modalController: ModalController,
-  ) { }
+  ) {
+    this.authService.getUser().subscribe(user => {
+      this.userProfile = user;
+    })
+   }
 
   ngOnInit() {
     this.authService.getUser().subscribe(user => {
       this.userProfile = user;
+      console.log(this.userProfile.photoURL);
+
     })
   }
 

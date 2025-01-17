@@ -4,6 +4,8 @@ import { SwPush } from '@angular/service-worker';
 import { environment } from 'src/environments/environment';
 import { AngularFireMessaging } from '@angular/fire/compat/messaging';
 import { NotificationService } from './z-service/notif/notification.service';
+import { ActionPerformed, PushNotificationSchema, PushNotifications, Token } from '@capacitor/push-notifications';
+
 
 @Component({
   selector: 'app-root',
@@ -14,22 +16,24 @@ export class AppComponent implements OnInit {
   fcmToken: any;
   constructor(
     private afMessaging: AngularFireMessaging,
-    private notificationService: NotificationService) { }
+    private notificationService: NotificationService) {
+    // this.initMobileNotif();
+  }
 
   ngOnInit() {
-    // this.requestPermission();
-    // this.listen();
+    this.requestPermission();
+    this.listen();
   }
 
   requestPermission() {
     this.afMessaging.requestToken
-    .subscribe(
-      (token) => {
-        console.log('Permission granted! Save to the server!', token);
-        // TODO: send token to server
-       },
-      (error) => { console.error(error); },
-    );
+      .subscribe(
+        (token) => {
+          console.log('Permission granted! Save to the server!', token);
+
+        },
+        (error) => { console.error(error); },
+      );
   }
 
   listen() {
@@ -51,6 +55,34 @@ export class AppComponent implements OnInit {
         alert('Token berhasil disalin ke clipboard!');
       });
     }
+  }
+
+  initMobileNotif() {
+    console.log('Initializing HomePage');
+    PushNotifications.requestPermissions().then((result) => {
+      if (result.receive === 'granted') {
+
+        PushNotifications.register();
+      } else {
+
+      }
+    });
+
+    PushNotifications.addListener('registration', (token: Token) => {
+      alert('Push registration success, token: ' + token.value);
+    });
+
+    PushNotifications.addListener('registrationError', (error: any) => {
+      alert('Error on registration: ' + JSON.stringify(error));
+    });
+
+    PushNotifications.addListener('pushNotificationReceived', (notification: PushNotificationSchema) => {
+      alert('Push received: ' + JSON.stringify(notification));
+    });
+
+    PushNotifications.addListener('pushNotificationActionPerformed', (notification: ActionPerformed) => {
+      alert('Push action performed: ' + JSON.stringify(notification));
+    });
   }
 
 }

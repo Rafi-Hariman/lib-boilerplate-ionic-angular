@@ -36,7 +36,7 @@ export class CetakKuisionerComponent implements OnInit {
         ],
       },
       {
-        text: 'Apakah saudari minum tablet tambah darah pada hari yang sama (jarak 6 hari)?',
+        text: `Apakah saudari minum tablet ${this.selectedObat?.nama} pada hari yang sama (jarak 6 hari)?`,
         options: [
           { value: 1, label: 'Tidak Pernah', color: 'danger' },
           { value: 2, label: 'Jarang', color: 'warning' },
@@ -45,7 +45,7 @@ export class CetakKuisionerComponent implements OnInit {
         ],
       },
       {
-        text: 'Apakah saudari minum tablet tambah darah menggunakan air putih?',
+        text: `Apakah saudari minum tablet ${this.selectedObat?.nama} menggunakan air putih?`,
         options: [
           { value: 1, label: 'Tidak Pernah', color: 'danger' },
           { value: 2, label: 'Jarang', color: 'warning' },

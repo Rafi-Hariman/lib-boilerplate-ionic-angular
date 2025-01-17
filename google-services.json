@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "392629802330",
+    "firebase_url": "https://lib-pill-notification-angular-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "lib-pill-notification-angular",
+    "storage_bucket": "lib-pill-notification-angular.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:392629802330:android:231e68ea9b387921470f63",
+        "android_client_info": {
+          "package_name": "com.push.notif"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "392629802330-hk5u9ir4gikon6d79ei2s3q8iuqfc4b2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0XmUlcUG-O-XqLE9GcRd0eLU-DI2pqiY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "392629802330-00kmgj0s4a3gdlj4bbm5fdosl910kf4j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

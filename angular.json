@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/app/browser",
+            "outputPath": "www",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -172,39 +172,6 @@
               "vendorChunk": true
             },
             "ci": {}
-          },
-          "defaultConfiguration": "production"
-        },
-        "serve-ssr": {
-          "builder": "@angular-devkit/build-angular:ssr-dev-server",
-          "configurations": {
-            "development": {
-              "browserTarget": "app:build:development",
-              "serverTarget": "app:server:development"
-            },
-            "production": {
-              "browserTarget": "app:build:production",
-              "serverTarget": "app:server:production"
-            }
-          },
-          "defaultConfiguration": "development"
-        },
-        "prerender": {
-          "builder": "@angular-devkit/build-angular:prerender",
-          "options": {
-            "routes": [
-              "/"
-            ]
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "app:build:production",
-              "serverTarget": "app:server:production"
-            },
-            "development": {
-              "browserTarget": "app:build:development",
-              "serverTarget": "app:server:development"
-            }
           },
           "defaultConfiguration": "production"
         }

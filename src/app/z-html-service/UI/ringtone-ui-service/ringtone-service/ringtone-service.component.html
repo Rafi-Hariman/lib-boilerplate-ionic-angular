@@ -1,5 +1,4 @@
 <ion-content>
-
   <div style="display: flex; justify-content: space-between; padding:0 20px;">
     <ion-title>
       Pengaturan notifikasi
@@ -9,8 +8,6 @@
       <ion-icon slot="end" name="time-outline"></ion-icon>
     </ion-button>
   </div>
-
-
   <ion-grid class="ion-justify-content-center ion-text-center">
     <ion-card *ngFor="let obat of obatList" class="ion-margin">
       <ion-card-header>
@@ -43,9 +40,6 @@
           {{ obat?.tanggal | date: 'HH:mm:ss' }}
         </ion-button>
       </div>
-
-
-
     </ion-card>
   </ion-grid>
 </ion-content>

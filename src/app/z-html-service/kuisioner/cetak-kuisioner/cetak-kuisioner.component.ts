@@ -27,7 +27,7 @@ export class CetakKuisionerComponent implements OnInit {
   ngOnInit() {
     this.questions = [
       {
-        text: `Apakah saudara/saudari minum 1 tablet ${this.selectedObat?.nama} dalam seminggu?`,
+        text: `Apakah saudari minum 1 tablet ${this.selectedObat?.nama} dalam seminggu?`,
         options: [
           { value: 1, label: 'Tidak Pernah', color: 'danger' },
           { value: 2, label: 'Jarang', color: 'warning' },

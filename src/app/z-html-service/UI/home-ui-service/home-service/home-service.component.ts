@@ -23,33 +23,8 @@ export class HomeServiceComponent implements OnInit {
 
 
   isActionSheetOpen = false;
-  jenisObatList: string[] = [
-    'All',
-    'Analgesik',
-    'Antibiotik',
-    'Antidepresan',
-    'Antihistamin',
-    'Antipiretik',
-    'Antiinflamasi',
-    'Antiviral',
-    'Diuretik',
-    'Ekspektoran',
-    'Laksatif',
-    'Obat Jantung',
-    'Obat Hipertensi',
-    'Obat Diabetes',
-    'Obat Gastrointestinal',
-    'Obat Neurologis',
+jenisObatList: string[] = [
     'Obat Tambah Darah',
-    'Obat Tidur',
-    'Obat Tumor',
-    'Obat Wasir',
-    'Obat Mata',
-    'Obat Kulit',
-    'Obat Telinga',
-    'Obat Hidung',
-    'Obat Gigi',
-    'Obat Kanker',
   ];
   public actionSheetButtons = [
     {

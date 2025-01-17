@@ -1,35 +1,36 @@
 <ion-content>
+  <ion-row style="
+  background: #e7e5e5;
+  border-radius: 9px;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  margin: 10px;
+  padding: 8px;
+" class="ion-align-items-center ion-justify-content-between mb-4">
+    <ion-col>
+      <h1 class="ion-text-uppercase ion-font-bold ion-text-tertiary">
+        {{ greetingMessage }}
+      </h1>
+      <p class="ion-text-gray">{{ userProfile?.displayName || 'User' }}</p>
+    </ion-col>
+    <ion-col size="auto">
+      <ion-avatar>
+        <img [src]="userProfile?.photoURL ?? 'https://placehold.co/50x50'" alt="Profile picture" />
+      </ion-avatar>
+    </ion-col>
+  </ion-row>
   <ion-grid>
     <ion-row class="ion-align-items-center ion-justify-content-between mb-4" style="margin: 0 7px;">
       <ion-col size="auto">
         <p class="ion-text-sm ion-text-gray">{{currentTime}}</p>
       </ion-col>
       <ion-col size="auto" class="ion-text-right">
-        <ion-button (click)="openModal()" color="primary" fill="outline">
+        <ion-button (click)="openModal()" color="primary"  shape="round" >
           Tambah
           <ion-icon slot="end" name="add"></ion-icon>
         </ion-button>
       </ion-col>
     </ion-row>
-    <ion-row style="
-      background: #e7e5e5;
-      border-radius: 9px;
-      box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
-      margin: 10px;
-      padding: 8px;
-    " class="ion-align-items-center ion-justify-content-between mb-4">
-      <ion-col>
-        <h1 class="ion-text-uppercase ion-font-bold ion-text-tertiary">
-          {{ greetingMessage }}
-        </h1>
-        <p class="ion-text-gray">{{ userProfile?.displayName || 'User' }}</p>
-      </ion-col>
-      <ion-col size="auto">
-        <ion-avatar>
-          <img [src]="userProfile?.photoURL ?? 'https://placehold.co/50x50'" alt="Profile picture" />
-        </ion-avatar>
-      </ion-col>
-    </ion-row>
+
     <ion-row>
       <ion-col>
         <ion-item class="ion-shadow ion-rounded">
@@ -74,15 +75,15 @@
                 <ion-card-subtitle>{{ obat.jenis }}</ion-card-subtitle>
               </ion-card-header>
               <div style="display: flex; gap: 8px; padding: 10px;">
-                <ion-button size="small" color="danger" fill="outline" (click)="presentActionSheet(obat.id)">
+                <ion-button size="small" color="danger" (click)="presentActionSheet(obat.id)">
                   Delete
                   <ion-icon slot="end" name="trash"></ion-icon>
                 </ion-button>
-                <ion-button size="small" fill="outline" (click)="openModalEdit(obat.id)">
+                <ion-button size="small" (click)="openModalEdit(obat.id)">
                   Edit
                   <ion-icon slot="end" name="create"></ion-icon>
                 </ion-button>
-                <ion-button color="medium" size="small" fill="outline" (click)="openModalDetail(obat.id)">
+                <ion-button color="medium" size="small" (click)="openModalDetail(obat.id)">
                   Detail
                   <ion-icon slot="end" name="eye"></ion-icon>
                 </ion-button>

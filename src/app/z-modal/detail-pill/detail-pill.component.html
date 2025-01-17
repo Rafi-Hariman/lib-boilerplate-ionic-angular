@@ -10,60 +10,61 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <!-- Tampilkan gambar obat -->
-    <img [alt]="selectedObat?.nama" [src]="selectedObat?.file" class="image-full" />
+  <ion-list>
+    <!-- Gambar Obat -->
+    <ion-item lines="none">
+      <ion-thumbnail slot="start">
+        <img [alt]="selectedObat?.nama" [src]="selectedObat?.file" />
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ selectedObat?.nama }}</h2>
+        <p>{{ selectedObat?.jenis }}</p>
+      </ion-label>
+    </ion-item>
 
-    <ion-card-header>
-      <ion-card-title>{{ selectedObat?.nama }}</ion-card-title>
-      <ion-card-subtitle>{{ selectedObat?.jenis }}</ion-card-subtitle>
-    </ion-card-header>
+    <!-- Divider -->
+    <ion-item-divider>
+      <ion-label>Description</ion-label>
+    </ion-item-divider>
 
-    <ion-card-content>
-      <!-- Informasi tambahan -->
-      <!-- <div class="rating">
-        <ion-icon name="star" color="warning"></ion-icon>
-        <span class="ml-1 font-semibold">4.8</span>
-        <span class="ml-1 text-muted">(230)</span>
-      </div> -->
-
-      <!-- Ikon tambahan -->
-      <!-- <ion-grid class="ion-margin-vertical">
-        <ion-row>
-          <ion-col size="4">
-            <ion-icon class="icon-circle" name="car-outline" color="warning"></ion-icon>
-          </ion-col>
-          <ion-col size="4">
-            <ion-icon class="icon-circle" name="cafe-outline" color="warning"></ion-icon>
-          </ion-col>
-          <ion-col size="4">
-            <ion-icon class="icon-circle" name="book-outline" color="warning"></ion-icon>
-          </ion-col>
-        </ion-row>
-      </ion-grid> -->
-
-      <ion-divider></ion-divider>
-
-      <!-- Deskripsi obat -->
-      <h3>Description</h3>
+    <!-- Deskripsi -->
+    <ion-item lines="none">
       <p>
         {{ selectedObat?.deskripsi }}
       </p>
+    </ion-item>
 
-      <!-- Informasi dosis dan aturan minum -->
-      <h3 class="ion-margin-top">Details</h3>
-      <p>
-        <strong>Dosis Obat:</strong> {{ selectedObat?.dosis_obat }}
-      </p>
-      <p>
-        <strong>Aturan Minum:</strong> {{ selectedObat?.aturan_minum }}
-      </p>
-      <p>
-        <strong>Frekuensi Minum:</strong> {{ selectedObat?.frekuensi_minum }}
-      </p>
-    </ion-card-content>
-  </ion-card>
+    <!-- Divider Details -->
+    <ion-item-divider>
+      <ion-label>Details</ion-label>
+    </ion-item-divider>
+
+    <!-- Detail Dosis Obat -->
+    <ion-item>
+      <ion-label>
+        <strong>Dosis Obat:</strong>
+      </ion-label>
+      <ion-note slot="end">{{ selectedObat?.dosis_obat }}</ion-note>
+    </ion-item>
+
+    <!-- Detail Aturan Minum -->
+    <ion-item>
+      <ion-label>
+        <strong>Aturan Minum:</strong>
+      </ion-label>
+      <ion-note slot="end">{{ selectedObat?.aturan_minum }}</ion-note>
+    </ion-item>
+
+    <!-- Detail Frekuensi Minum -->
+    <ion-item>
+      <ion-label>
+        <strong>Frekuensi Minum:</strong>
+      </ion-label>
+      <ion-note slot="end">{{ selectedObat?.frekuensi_minum }}</ion-note>
+    </ion-item>
+  </ion-list>
 </ion-content>
+
 <ion-footer>
   <ion-toolbar>
     <ion-button expand="block" color="primary" (click)="onClose()">Kembali</ion-button>

@@ -2,7 +2,7 @@ import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'com.push.notif',
-  appName: 'Cantik',
+  appName: 'Si Cantik',
   webDir: 'www'
 };
 

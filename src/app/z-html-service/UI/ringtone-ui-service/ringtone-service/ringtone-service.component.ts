@@ -27,11 +27,13 @@ export class RingtoneServiceComponent implements OnInit {
     this.authService.getUser().subscribe(user => {
       this.userProfile = user;
     })
+
   }
 
   fetchAllObat() {
     this.apiFireBaseSvc.getAll().subscribe((data) => {
       this.obatList = data;
+      console.log('User :', data);
     });
   }
 

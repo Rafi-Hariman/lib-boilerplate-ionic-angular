@@ -44,6 +44,7 @@ import { RingtoneHistoryComponent } from './UI/ringtone-ui-service/ringtone-hist
 import { KuisionerComponent } from './kuisioner/kuisioner.component';
 import { CetakKuisionerComponent } from './kuisioner/cetak-kuisioner/cetak-kuisioner.component';
 import { DetailKuisionerComponent } from './kuisioner/detail-kuisioner/detail-kuisioner.component';
+import { MessagingService } from '../z-service/notif/messaging.service';
 
 
 @NgModule({
@@ -121,6 +122,7 @@ import { DetailKuisionerComponent } from './kuisioner/detail-kuisioner/detail-ku
     // UserauthService,
     AuthService,
     TimeDateService,
+    MessagingService,
 
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

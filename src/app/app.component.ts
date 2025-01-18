@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { AngularFireMessaging } from '@angular/fire/compat/messaging';
 import { NotificationService } from './z-service/notif/notification.service';
 import { ActionPerformed, PushNotificationSchema, PushNotifications, Token } from '@capacitor/push-notifications';
+import { MessagingService } from './z-service/notif/messaging.service';
 
 
 @Component({
@@ -16,13 +17,22 @@ export class AppComponent implements OnInit {
   fcmToken: any;
   constructor(
     private afMessaging: AngularFireMessaging,
-    private notificationService: NotificationService) {
+    private notificationService: NotificationService,
+    private messagingService: MessagingService
+
+  ) {
     // this.initMobileNotif();
   }
 
+
+
   ngOnInit() {
-    this.requestPermission();
-    this.listen();
+    // this.requestPermission();
+    // this.listen();
+    this.messagingService.receiveMessage().subscribe((payload) => {
+      console.log('Notification received:', payload);
+      // Anda dapat memproses atau menampilkan notifikasi sesuai kebutuhan
+    });
   }
 
   requestPermission() {

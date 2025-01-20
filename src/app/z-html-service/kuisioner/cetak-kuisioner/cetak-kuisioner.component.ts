@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { ApiFirebaseService } from '../../../z-service/firebase/api-firebase.service';
 import { ToastService } from '../../../z-service/html/toast.service';
+import { AuthService } from 'src/app/z-service/auth/auth.service';
 
 @Component({
   selector: 'app-cetak-kuisioner',
@@ -11,6 +12,7 @@ import { ToastService } from '../../../z-service/html/toast.service';
 export class CetakKuisionerComponent implements OnInit {
 
   @Input() selectedObat: any = null;
+  user: any = null;
   currentQuestionIndex: number = 0;
   questions: { text: string; options: { value: number; label: string; color: string }[] }[] = [];
 
@@ -19,38 +21,37 @@ export class CetakKuisionerComponent implements OnInit {
   constructor(
     private modalController: ModalController,
     private apiFireBaseService: ApiFirebaseService,
-    private toastService: ToastService
+    private toastService: ToastService,
+    private authService: AuthService
   ) {
 
   }
 
   ngOnInit() {
+    this.authService.getUser().subscribe(user => {
+      console.log('user', user);
+      this.user = user;
+    });
     this.questions = [
       {
         text: `Apakah saudari minum 1 tablet ${this.selectedObat?.nama} dalam seminggu?`,
         options: [
-          { value: 1, label: 'Tidak Pernah', color: 'danger' },
-          { value: 2, label: 'Jarang', color: 'warning' },
-          { value: 3, label: 'Sering', color: 'primary' },
-          { value: 4, label: 'Selalu', color: 'success' }
+          { value: 1, label: 'Tidak', color: 'danger' },
+          { value: 2, label: 'Iya', color: 'success' }
         ],
       },
       {
         text: `Apakah saudari minum tablet ${this.selectedObat?.nama} pada hari yang sama (jarak 6 hari)?`,
         options: [
-          { value: 1, label: 'Tidak Pernah', color: 'danger' },
-          { value: 2, label: 'Jarang', color: 'warning' },
-          { value: 3, label: 'Sering', color: 'primary' },
-          { value: 4, label: 'Selalu', color: 'success' }
+          { value: 1, label: 'Tidak', color: 'danger' },
+          { value: 2, label: 'Iya', color: 'success' }
         ],
       },
       {
         text: `Apakah saudari minum tablet ${this.selectedObat?.nama} menggunakan air putih?`,
         options: [
-          { value: 1, label: 'Tidak Pernah', color: 'danger' },
-          { value: 2, label: 'Jarang', color: 'warning' },
-          { value: 3, label: 'Sering', color: 'primary' },
-          { value: 4, label: 'Selalu', color: 'success' }
+          { value: 1, label: 'Tidak', color: 'danger' },
+          { value: 2, label: 'Iya', color: 'success' }
         ],
       }
     ];
@@ -120,14 +121,22 @@ export class CetakKuisionerComponent implements OnInit {
       tanggal: this.selectedObat?.tanggal || '',
       displayName: this.selectedObat?.displayName || '',
       email: this.selectedObat?.email || '',
-      response: this.responses.map(response => ({
+      responses: this.responses.map(response => ({
         questionIndex: response.questionIndex || 0,
         value: response.value || 0,
         label: response.label || '',
+        displayName: this.user?.displayName || '',
+        nama: this.selectedObat?.nama || '',
+        email: this.user?.email || '',
         question: this.questions[response.questionIndex]?.text || ''
       }))
     };
-    this.apiFireBaseService.update(this.selectedObat.id, payload)
+    console.log('payload', payload);
+    console.log('user', this.user);
+
+
+    // return
+    this.apiFireBaseService.createResponse(payload)
       .then(() => {
         this.toastService.presentToast('Sukses menyimpan data', 'success', 'top', 1000);
         this.modalController.dismiss(payload);

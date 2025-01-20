@@ -28,10 +28,8 @@
         <p>{{item?.dosis_obat}}</p>
       </div>
       <div style="display: flex; justify-content: space-between;">
-        <ion-chip *ngIf="!item.response" fill="solid" color="primary" size="small"
-          (click)="onCetakKuisioner(item.id)">Jawab</ion-chip>
-        <ion-chip *ngIf="item.response" fill="solid" color="success" size="small"
-          (click)="onDetailKuisioner(item.id)">Lihat</ion-chip>
+        <ion-chip fill="solid" color="primary" size="small" (click)="onCetakKuisioner(item.id)">Jawab</ion-chip>
+        <ion-chip fill="solid" color="success" size="small" (click)="onDetailKuisioner(item.id)">Lihat</ion-chip>
       </div>
     </ion-card-content>
   </ion-card>
@@ -41,13 +39,13 @@
 <ion-footer class="ion-no-border">
   <ion-toolbar class="ion-no-border">
     <!-- <div style="display: flex;justify-content: space-between;"> -->
-      <ion-button fill="clear" color="primary" shape="round" (click)="onCancel()">Kembali</ion-button>
-      <ion-button slot="end" fill="solid" color="primary" shape="round" (click)="onExport('pdf')">
-        PDF
-      </ion-button>
-      <ion-button slot="end" fill="solid" color="secondary" shape="round" (click)="onExport('excel')">
-        Excel
-      </ion-button>
+    <ion-button fill="clear" color="primary" shape="round" (click)="onCancel()">Kembali</ion-button>
+    <ion-button slot="end" fill="solid" color="primary" shape="round" (click)="onExport('pdf')">
+      PDF
+    </ion-button>
+    <ion-button slot="end" fill="solid" color="secondary" shape="round" (click)="onExport('excel')">
+      Excel
+    </ion-button>
     <!-- </div> -->
   </ion-toolbar>
 </ion-footer>

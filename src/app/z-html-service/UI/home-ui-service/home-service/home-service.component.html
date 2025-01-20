@@ -31,7 +31,7 @@
       </ion-col>
     </ion-row>
 
-    <ion-row>
+    <!-- <ion-row>
       <ion-col>
         <ion-item class="ion-shadow ion-rounded">
           <ion-input [clearInput]="true" placeholder="Cari nama obat anda" (ionInput)="onSearchInput($event)"
@@ -44,27 +44,27 @@
           </ion-button>
         </ion-item>
       </ion-col>
-    </ion-row>
+    </ion-row> -->
     <ion-row>
       <ion-col>
         <ion-row class="ion-align-items-center ion-justify-content-between mb-4">
-          <ion-col size="auto">
+          <!-- <ion-col size="auto">
             <h2 class="ion-text-uppercase ion-font-bold">Jenis Obat</h2>
-          </ion-col>
-          <ion-col size="auto" class="ion-text-right">
+          </ion-col> -->
+          <!-- <ion-col size="auto" class="ion-text-right">
             <ion-button fill="clear">
               <ion-icon name="funnel-outline"></ion-icon>
             </ion-button>
-          </ion-col>
+          </ion-col> -->
         </ion-row>
-        <ion-row>
+        <!-- <ion-row>
           <ion-scroll scroll-x="true" class="horizontal-scroll">
             <ion-chip *ngFor="let jenis of jenisObatList" size="small"
               [color]="selectedJenis === jenis ? 'primary' : 'tertiary'" (click)="onFilterByJenis(jenis)">
               {{ jenis }}
             </ion-chip>
           </ion-scroll>
-        </ion-row>
+        </ion-row> -->
         <ion-slides>
           <ion-slide>
             <ion-card *ngFor="let obat of filteredObatList"

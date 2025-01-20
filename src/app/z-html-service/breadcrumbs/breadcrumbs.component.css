@@ -10,6 +10,8 @@ ion-breadcrumb.active ion-icon {
 .breadcrumbs-zindex {
   background-color: white;
   margin-bottom: 1em;
+  margin-top: 6px;
+  padding-bottom: 6px;
    /* border-radius: 0 0 20px 20px; */
 }
 

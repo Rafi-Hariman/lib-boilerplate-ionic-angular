@@ -21,15 +21,15 @@ export class NotificationComponent implements OnInit, OnDestroy {
   constructor(private notificationService: NotificationService) { }
 
   ngOnInit(): void {
-    this.notificationService.getNotification()
-    .subscribe(n => {
-      this.notification = n;
-      this.showPanel = n !== null;
+    // this.notificationService.getNotification()
+    // .subscribe(n => {
+    //   this.notification = n;
+    //   this.showPanel = n !== null;
 
-      this.notificationTimeout = setTimeout(() => {
-        this.showPanel = false;
-      }, 3000);
-    });
+    //   this.notificationTimeout = setTimeout(() => {
+    //     this.showPanel = false;
+    //   }, 3000);
+    // });
   }
 
   dismissNotification() {

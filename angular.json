@@ -19,6 +19,12 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
+            "allowedCommonJsDependencies": [
+              "jspdf-autotable",
+              "file-saver",
+              "jspdf",
+              "xlsx"
+            ],
             "assets": [
               "src/assets",
               "src/manifest.json",
@@ -48,13 +54,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+                  "maximumWarning": "15mb",
+                  "maximumError": "15mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "15mb",
+                  "maximumError": "15mb"
                 }
               ],
               "fileReplacements": [

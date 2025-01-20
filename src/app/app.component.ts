@@ -6,6 +6,7 @@ import { AngularFireMessaging } from '@angular/fire/compat/messaging';
 import { NotificationService } from './z-service/notif/notification.service';
 import { ActionPerformed, PushNotificationSchema, PushNotifications, Token } from '@capacitor/push-notifications';
 import { MessagingService } from './z-service/notif/messaging.service';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
 
 @Component({
@@ -14,85 +15,43 @@ import { MessagingService } from './z-service/notif/messaging.service';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent implements OnInit {
+
   fcmToken: any;
   constructor(
     private afMessaging: AngularFireMessaging,
     private notificationService: NotificationService,
-    private messagingService: MessagingService
+    private messagingService: MessagingService,
+    private localNotifications: LocalNotifications
 
   ) {
-    // this.initMobileNotif();
+    this.initializeApp();
+
   }
-
-
 
   ngOnInit() {
-    // this.requestPermission();
-    // this.listen();
-    this.messagingService.receiveMessage().subscribe((payload) => {
-      console.log('Notification received:', payload);
-      // Anda dapat memproses atau menampilkan notifikasi sesuai kebutuhan
-    });
+    // this.initializeApp();
   }
 
-  requestPermission() {
-    this.afMessaging.requestToken
-      .subscribe(
-        (token) => {
-          console.log('Permission granted! Save to the server!', token);
-
-        },
-        (error) => { console.error(error); },
-      );
-  }
-
-  listen() {
-    this.afMessaging.messages
-      .subscribe((message: any) => {
-        console.log(message);
-        this.notificationService.setNotification({
-          body: message.notification.body,
-          title: message.notification.title,
-          isVisible: true
-        })
-      });
-  }
-
-
-  copyToClipboard(): void {
-    if (this.fcmToken) {
-      navigator.clipboard.writeText(this.fcmToken).then(() => {
-        alert('Token berhasil disalin ke clipboard!');
-      });
-    }
-  }
-
-  initMobileNotif() {
-    console.log('Initializing HomePage');
-    PushNotifications.requestPermissions().then((result) => {
-      if (result.receive === 'granted') {
-
-        PushNotifications.register();
+  initializeApp() {
+    this.localNotifications.requestPermission().then((granted) => {
+      if (granted) {
+        console.log('Notification permissions granted');
+        this.localNotifications.schedule({
+          id: 1,
+          title: 'Pengingat Obat',
+          text: 'Selamat datang Cantik, jangan lupa minum obat ya',
+          trigger: { at: new Date(new Date().getTime() + 5000) },
+          foreground: true,
+        });
+        this.notificationService.scheduleNotifications();
+        this.localNotifications.on('click').subscribe((notification) => {
+          console.log('click', notification);
+        });
       } else {
-
+        console.error('Notification permissions denied');
       }
     });
 
-    PushNotifications.addListener('registration', (token: Token) => {
-      alert('Push registration success, token: ' + token.value);
-    });
-
-    PushNotifications.addListener('registrationError', (error: any) => {
-      alert('Error on registration: ' + JSON.stringify(error));
-    });
-
-    PushNotifications.addListener('pushNotificationReceived', (notification: PushNotificationSchema) => {
-      alert('Push received: ' + JSON.stringify(notification));
-    });
-
-    PushNotifications.addListener('pushNotificationActionPerformed', (notification: ActionPerformed) => {
-      alert('Push action performed: ' + JSON.stringify(notification));
-    });
   }
 
 }

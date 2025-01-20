@@ -21,3 +21,15 @@ export interface Obat {
     questionIndex: any;
   }[];
 }
+
+export interface ObatResponse {
+    responses : {
+      label: string;
+      nama: string;
+      question: string;
+      value: any;
+      questionIndex: any;
+      displayName?: string;
+      email?: string;
+    }[]
+}

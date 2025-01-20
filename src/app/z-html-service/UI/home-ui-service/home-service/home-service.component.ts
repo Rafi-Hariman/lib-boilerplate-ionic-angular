@@ -23,8 +23,8 @@ export class HomeServiceComponent implements OnInit {
 
 
   isActionSheetOpen = false;
-jenisObatList: string[] = [
-    'Obat Tambah Darah',
+  jenisObatList: string[] = [
+    'Tablet Tambah Darah',
   ];
   public actionSheetButtons = [
     {

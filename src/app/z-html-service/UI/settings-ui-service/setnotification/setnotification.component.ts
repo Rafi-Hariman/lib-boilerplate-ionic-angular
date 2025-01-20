@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../../../z-service/auth/auth.service';
+
 
 
 @Component({
@@ -11,11 +11,13 @@ export class SetnotificationComponent implements OnInit {
   userProfile: any;
 
   constructor(
-    private authService: AuthService,
+
   ) { }
 
   ngOnInit() {
 
   }
+
+
 
 }

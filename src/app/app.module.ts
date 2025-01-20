@@ -6,6 +6,8 @@ import {
 } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { AngularFireModule } from '@angular/fire/compat'
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
+
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
@@ -60,6 +62,7 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
       registrationStrategy: 'registerWhenStable:30000',
     }),
     AngularFireModule.initializeApp(environment.firebase),
+
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
@@ -89,6 +92,7 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
     provideStorage(() => getStorage()),
     provideRemoteConfig(() => getRemoteConfig()),
     provideVertexAI(() => getVertexAI()),
+    LocalNotifications,
   ],
   bootstrap: [AppComponent],
 })

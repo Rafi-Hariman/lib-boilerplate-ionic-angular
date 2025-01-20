@@ -43,13 +43,18 @@
         <ion-col size="12" size-md="4">
           <ion-item>
             <ion-label position="stacked">Pesan <span class="text-danger">*</span></ion-label>
-            <ion-input formControlName="pesan_notif" placeholder="Masukkan pesan minum obat"></ion-input>
+            <ion-textarea
+              formControlName="pesan_notif"
+              autoGrow="true"
+              placeholder="Masukkan pesan minum obat">
+            </ion-textarea>
           </ion-item>
           <ion-text color="danger" *ngIf="notifForm.get('pesan_notif')?.invalid && notifForm.get('pesan_notif')?.touched">
             Harap isi pesan!
           </ion-text>
         </ion-col>
       </ion-row>
+
     </ion-grid>
     <ion-footer class="ion-no-border" style="padding: 20px;">
       <ion-row class="ion-justify-content-center">

@@ -37,7 +37,11 @@
         <ion-col size="12" size-md="4">
           <ion-item>
             <ion-label position="stacked">Deskripsi</ion-label>
-            <ion-input formControlName="deskripsi" placeholder="-- Masukan Deskripsi Obat --"></ion-input>
+            <ion-textarea
+              formControlName="deskripsi"
+              placeholder="-- Masukan Deskripsi Obat --"
+              autoGrow="true">
+            </ion-textarea>
           </ion-item>
         </ion-col>
       </ion-row>

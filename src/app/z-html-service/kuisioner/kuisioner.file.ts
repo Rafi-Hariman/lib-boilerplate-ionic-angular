@@ -6,11 +6,13 @@ import { saveAs } from 'file-saver';
 export class FileExporter {
   exportToPDF(data: any[]) {
     const doc = new jsPDF();
-    const tableColumn = ['Nama Obat', 'Nomor Pertanyaan', 'Pertanyaan', 'Jawaban', 'Bobot'];
+    const tableColumn = ['Nama, Email, Nama Obat', 'Nomor Pertanyaan', 'Pertanyaan', 'Jawaban', 'Bobot'];
     const tableRows: any[] = [];
 
     data.forEach((item, index) => {
       tableRows.push([
+        item.displayName,
+        item.email,
         item.namaObat,
         index + 1, // Nomor pertanyaan
         item.question,
@@ -31,6 +33,8 @@ export class FileExporter {
 
   exportToExcel(data: any[]) {
     const worksheetData = data.map((item, index) => ({
+      'Nama': item.displayName,
+      'Email': item.email,
       'Nama Obat': item.namaObat,
       'Nomor Pertanyaan': index + 1,
       'Pertanyaan': item.question,

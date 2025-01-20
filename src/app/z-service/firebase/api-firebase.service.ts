@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { Obat } from '../../z-model/obat';
+import { Obat, ObatResponse } from '../../z-model/obat';
 import { Timestamp } from '@angular/fire/firestore';
 import { MessagingService } from '../notif/messaging.service';
 
@@ -24,6 +24,10 @@ export class ApiFirebaseService {
     return this.firestore.collection<Obat>(this.dbPath).valueChanges({ idField: 'id' });
   }
 
+  getAllResponse() {
+    return this.firestore.collection<ObatResponse>('responses').valueChanges({ idField: 'id' });
+  }
+
 
   async create(obat: Obat) {
     const user = await this.auth.currentUser;
@@ -35,6 +39,10 @@ export class ApiFirebaseService {
       };
     }
     return this.firestore.collection<Obat>(this.dbPath).add(obat);
+  }
+
+  async createResponse(obat : ObatResponse) {
+    return this.firestore.collection<ObatResponse>('responses').add(obat);
   }
 
 
@@ -118,6 +126,50 @@ export class ApiFirebaseService {
       }
     });
   }
+
+  // async saveResponse(response: { nama: string; action: string; timestamp: Date }) {
+  //   const user = await this.auth.currentUser; // Dapatkan informasi pengguna jika diperlukan
+  //   if (!response.nama) {
+  //     throw new Error('Nama obat harus disediakan untuk menyimpan respons.');
+  //   }
+
+  //   const dataToSave = {
+  //     nama: response.nama,
+  //     action: response.action,
+  //     timestamp: Timestamp.fromDate(response.timestamp), // Konversi ke Timestamp Firestore
+  //     user: user
+  //       ? {
+  //           displayName: user.displayName || 'Unknown User',
+  //           email: user.email || 'Unknown Email',
+  //           uid: user.uid,
+  //         }
+  //       : null,
+  //   };
+
+  //   // Gunakan nama obat sebagai ID dokumen
+  //   return this.firestore.collection('responses').doc(response.nama).set(dataToSave, { merge: true });
+  // }
+
+  async saveResponse(response: { nama: string; action: string; timestamp: Date }) {
+    const user = await this.auth.currentUser; // Ambil user saat ini
+    const dataToSave = {
+      nama: response.nama,
+      action: response.action,
+      timestamp: Timestamp.fromDate(response.timestamp),
+      user: user
+        ? {
+          displayName: user.displayName || 'Unknown User',
+          email: user.email || 'Unknown Email',
+          uid: user.uid,
+        }
+        : null,
+    };
+
+    // Simpan data ke Firestore
+    return this.firestore.collection('responses').doc(response.nama).set(dataToSave, { merge: true });
+  }
+
+
 }
 
 

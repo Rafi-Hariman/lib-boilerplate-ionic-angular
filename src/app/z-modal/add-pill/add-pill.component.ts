@@ -19,66 +19,20 @@ export class AddPillComponent implements OnInit {
   clearImage = true;
 
 
-jenisObatList: string[] = [
-    'Obat Tambah Darah',
+  jenisObatList: string[] = [
+    'Tablet Tambah Darah',
   ];
 
   dosisObatList: string[] = [
-    '1 mg',
-    '2 mg',
-    '5 mg',
-    '10 mg',
-    '20 mg',
-    '50 mg',
-    '60 mg',
-    '70 mg',
-    '80 mg',
-    '90 mg',
-    '100 mg',
-    '200 mg',
-    '500 mg',
-    '1 g',
-    '2 g',
-    '5 g',
-    '10 g',
-    '20 g',
-    '50 g',
-    '100 g',
-    '200 g',
-    '500 g',
-    '1 ml',
-    '2 ml',
-    '5 ml',
-    '10 ml',
-    '20 ml',
-    '50 ml',
-    '100 ml',
-    '200 ml',
-    '500 ml',
-    '1 L',
-    '2 L',
-    '5 L',
-    '10 L',
+    '60 mg'
   ];
 
   aturanMinumList: string[] = [
-    'Sebelum Makan',
     'Sesudah Makan',
-    'Saat Makan',
   ];
 
   frekuensiMinumList: string[] = [
-    '1 kali sehari',
-    '2 kali sehari',
-    '3 kali sehari',
-    '4 kali sehari',
-    '5 kali sehari',
-    '6 kali sehari',
     '1 Minggu sekali',
-    'Setiap 6 jam',
-    'Setiap 8 jam',
-    'Setiap 12 jam',
-    'Setiap 24 jam',
   ];
 
   obatForm: FormGroup;

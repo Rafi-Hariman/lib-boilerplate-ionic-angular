@@ -36,22 +36,22 @@ export class CetakKuisionerComponent implements OnInit {
       {
         text: `Apakah saudari minum 1 tablet ${this.selectedObat?.nama} dalam seminggu?`,
         options: [
-          { value: 1, label: 'Tidak', color: 'danger' },
-          { value: 2, label: 'Iya', color: 'success' }
+          { value: 0, label: 'Tidak', color: 'danger' },
+          { value: 1, label: 'Iya', color: 'success' }
         ],
       },
       {
         text: `Apakah saudari minum tablet ${this.selectedObat?.nama} pada hari yang sama (jarak 6 hari)?`,
         options: [
-          { value: 1, label: 'Tidak', color: 'danger' },
-          { value: 2, label: 'Iya', color: 'success' }
+          { value: 0, label: 'Tidak', color: 'danger' },
+          { value: 1, label: 'Iya', color: 'success' }
         ],
       },
       {
         text: `Apakah saudari minum tablet ${this.selectedObat?.nama} menggunakan air putih?`,
         options: [
-          { value: 1, label: 'Tidak', color: 'danger' },
-          { value: 2, label: 'Iya', color: 'success' }
+          { value: 0, label: 'Tidak', color: 'danger' },
+          { value: 1, label: 'Iya', color: 'success' }
         ],
       }
     ];

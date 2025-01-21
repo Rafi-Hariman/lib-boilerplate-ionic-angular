@@ -6,7 +6,6 @@ import {
 } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { AngularFireModule } from '@angular/fire/compat'
-import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
@@ -40,6 +39,8 @@ import { AngularFireMessagingModule } from '@angular/fire/compat/messaging';
 import { NotificationService } from './z-service/notif/notification.service';
 import { ApiFirebaseService } from './z-service/firebase/api-firebase.service';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
+import { isPlatformBrowser } from '@angular/common';
 
 
 @NgModule({
@@ -92,7 +93,7 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
     provideStorage(() => getStorage()),
     provideRemoteConfig(() => getRemoteConfig()),
     provideVertexAI(() => getVertexAI()),
-    LocalNotifications,
+    // LocalNotifications,
   ],
   bootstrap: [AppComponent],
 })

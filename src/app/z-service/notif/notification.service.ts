@@ -17,11 +17,13 @@ export class NotificationService {
     private apiFirebaseService: ApiFirebaseService,
     private platform: Platform
   ) {
-    this.platform.ready().then(() => {
-      this.localNotifications.on('actions').subscribe(async (notification) => {
-        this.handleNotificationAction(notification);
+    if (this.platform.is('cordova')) {
+      this.platform.ready().then(() => {
+        this.localNotifications.on('actions').subscribe(async (notification) => {
+          this.handleNotificationAction(notification);
+        });
       });
-    });
+    }
   }
 
   async handleNotificationAction(notification: any) {
@@ -59,6 +61,8 @@ export class NotificationService {
       console.error('Error saving response to Firestore:', error);
     }
   }
+
+
 
   scheduleNotifications() {
     this.apiFirebaseService.getAll().subscribe((data: any[]) => {

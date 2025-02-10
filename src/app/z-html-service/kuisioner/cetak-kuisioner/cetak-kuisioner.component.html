@@ -49,8 +49,15 @@
       <ion-label>{{ option.label }}</ion-label>
       <ion-chip slot="end" fill="solid" [color]="option.color">{{ option.value }}</ion-chip>
     </ion-item>
+    <ion-item>
+      <ion-label>Pilih Kelas</ion-label>
+      <ion-select [(ngModel)]="selectedClass" placeholder="Pilih kelas">
+        <ion-select-option *ngFor="let kelas of kelasList" [value]="kelas">{{ kelas }}</ion-select-option>
+      </ion-select>
+    </ion-item>
   </ion-list>
 </ion-content>
+
 
 <ion-footer class="ion-no-border">
   <ion-toolbar>

@@ -29,14 +29,6 @@ import { DeletePillComponent } from '../z-modal/delete-pill/delete-pill.componen
 import { DetailPillComponent } from '../z-modal/detail-pill/detail-pill.component';
 
 import { AuthService } from '../z-service/auth/auth.service';
-import { provideFirebaseApp } from '@angular/fire/app';
-import { provideAuth } from '@angular/fire/auth';
-import { initializeApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { provideFirestore } from '@angular/fire/firestore';
-import { getFirestore } from 'firebase/firestore';
 import { TimeDateService } from '../z-service/data/time-date.service';
 import { ModalSetnotifComponent } from '../z-modal/modal-setnotif/modal-setnotif.component';
 import { ModalsetringtoneComponent } from '../z-modal/modalsetringtone/modalsetringtone.component';
@@ -44,7 +36,10 @@ import { RingtoneHistoryComponent } from './UI/ringtone-ui-service/ringtone-hist
 import { KuisionerComponent } from './kuisioner/kuisioner.component';
 import { CetakKuisionerComponent } from './kuisioner/cetak-kuisioner/cetak-kuisioner.component';
 import { DetailKuisionerComponent } from './kuisioner/detail-kuisioner/detail-kuisioner.component';
-import { MessagingService } from '../z-service/notif/messaging.service';
+import { SideMenuComponent } from './side-menu/side-menu.component';
+import { NotificationService } from '../z-service/notif/notification.service';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
+
 
 
 @NgModule({
@@ -77,6 +72,7 @@ import { MessagingService } from '../z-service/notif/messaging.service';
     CetakKuisionerComponent,
     DetailKuisionerComponent,
     EditProfileComponent,
+    SideMenuComponent,
 
   ],
   imports: [
@@ -112,6 +108,7 @@ import { MessagingService } from '../z-service/notif/messaging.service';
     CetakKuisionerComponent,
     DetailKuisionerComponent,
     EditProfileComponent,
+    SideMenuComponent,
     HeaderComponent,
     LoaderComponent,
     RefreshComponent,
@@ -122,7 +119,8 @@ import { MessagingService } from '../z-service/notif/messaging.service';
     // UserauthService,
     AuthService,
     TimeDateService,
-    MessagingService,
+    NotificationService,
+    LocalNotifications,
 
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

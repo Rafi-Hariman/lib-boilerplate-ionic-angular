@@ -17,8 +17,10 @@ export class KuisionerComponent implements OnInit {
 
 
   obatList: any[] = [];
+  obatKuisioner: any[] = [];
   kuisioner: any;
   dataKuisioner: any;
+  exsistingUserName: any;
 
   constructor(
     private apiFireBase: ApiFirebaseService,
@@ -32,6 +34,19 @@ export class KuisionerComponent implements OnInit {
   fetchObatList() {
     this.apiFireBase.getAll().subscribe((data) => {
       this.obatList = data;
+    });
+
+    this.apiFireBase.getAllUserExcel().subscribe((data) => {
+      const responses = data
+        .filter((obat) => Array.isArray(obat.responses))
+        .flatMap((obat) =>
+          obat.responses.map((response: any) => ({
+            ...response,
+            displayName: response.displayName || 'Unknown'
+          }))
+        );
+      this.obatKuisioner = responses;
+      console.log('obat', this.obatKuisioner);
     });
   }
 
@@ -47,13 +62,10 @@ export class KuisionerComponent implements OnInit {
   }
 
   onExport(type: 'pdf' | 'excel') {
-
-    const allResponses = this.saveAllResponses(this.obatList);
-
     if (type === 'pdf') {
-      this.fileExporter.exportToPDF(allResponses);
+      this.fileExporter.exportToPDF(this.obatKuisioner);
     } else if (type === 'excel') {
-      this.fileExporter.exportToExcel(allResponses);
+      this.fileExporter.exportToExcel(this.obatKuisioner);
     }
   }
 
@@ -64,7 +76,7 @@ export class KuisionerComponent implements OnInit {
       component: CetakKuisionerComponent,
       cssClass: 'my-custom-class',
       componentProps: {
-        selectedObat: selectedObat
+        selectedObat: selectedObat,
       }
     });
     return await modal.present();
@@ -79,7 +91,8 @@ export class KuisionerComponent implements OnInit {
     const modal = await this.modalController.create({
       component: DetailKuisionerComponent,
       componentProps: {
-        selectedObat: selectedObat
+        selectedObat: selectedObat,
+        kuisioner: this.obatKuisioner,
       }
     });
     return await modal.present();

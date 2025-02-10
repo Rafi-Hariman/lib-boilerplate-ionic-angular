@@ -1,11 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../../z-service/auth/auth.service';
 import { ApiFirebaseService } from '../../../../z-service/firebase/api-firebase.service';
 import { ModalController } from '@ionic/angular';
 import { ModalSetnotifComponent } from '../../../../z-modal/modal-setnotif/modal-setnotif.component';
 import { ToastService } from '../../../../z-service/html/toast.service';
 import { LocalNotifications } from '@capacitor/local-notifications';
-
 
 @Component({
   selector: 'app-ringtone-service',
@@ -28,16 +27,12 @@ export class RingtoneServiceComponent implements OnInit {
     this.fetchAllObat();
     this.authService.getUser().subscribe(user => {
       this.userProfile = user;
-    })
-
-
-
+    });
   }
 
   fetchAllObat() {
     this.apiFireBaseSvc.getAll().subscribe((data) => {
       this.obatList = data;
-      console.log('User :', data);
     });
   }
 
@@ -64,14 +59,12 @@ export class RingtoneServiceComponent implements OnInit {
     await LocalNotifications.schedule({
       notifications: [
         {
-
           title: "My App",
           body: "Your upate is ready",
           id: Math.ceil(Math.random() * 100),
           schedule: { at: new Date(Date.now() + 1000 * 5) },
           sound: null,
           ongoing: false
-
         }
       ]
     });

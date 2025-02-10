@@ -5,16 +5,19 @@ import { saveAs } from 'file-saver';
 
 export class FileExporter {
   exportToPDF(data: any[]) {
+    console.log('data', data);
+
     const doc = new jsPDF();
-    const tableColumn = ['Nama, Email, Nama Obat', 'Nomor Pertanyaan', 'Pertanyaan', 'Jawaban', 'Bobot'];
+    const tableColumn = ['Nama', 'Email', 'Kelas', 'Nama Obat', 'Nomor Pertanyaan', 'Pertanyaan', 'Jawaban', 'Bobot'];
     const tableRows: any[] = [];
 
     data.forEach((item, index) => {
       tableRows.push([
         item.displayName,
         item.email,
-        item.namaObat,
-        index + 1, // Nomor pertanyaan
+        item.kelas,
+        item.nama,
+        item.questionIndex + 1, // Nomor pertanyaan
         item.question,
         item.label, // Jawaban
         item.value, // Bobot
@@ -35,8 +38,9 @@ export class FileExporter {
     const worksheetData = data.map((item, index) => ({
       'Nama': item.displayName,
       'Email': item.email,
-      'Nama Obat': item.namaObat,
-      'Nomor Pertanyaan': index + 1,
+      'Nama Obat': item.nama,
+      'Kelas': item.kelas,
+      'Nomor Pertanyaan': item.questionIndex + 1,
       'Pertanyaan': item.question,
       'Jawaban': item.label,
       'Bobot': item.value,

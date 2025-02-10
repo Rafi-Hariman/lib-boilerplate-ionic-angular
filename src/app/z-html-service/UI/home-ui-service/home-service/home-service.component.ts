@@ -21,7 +21,6 @@ export class HomeServiceComponent implements OnInit {
   selectedJenis: string = 'All';
   filteredObatList: any[] = [];
 
-
   isActionSheetOpen = false;
   jenisObatList: string[] = [
     'Tablet Tambah Darah',
@@ -54,8 +53,6 @@ export class HomeServiceComponent implements OnInit {
     private toastService: ToastService,
     private authService: AuthService,
     private timeSvc: TimeDateService,
-
-
   ) { }
 
   ngOnInit() {
@@ -75,18 +72,15 @@ export class HomeServiceComponent implements OnInit {
     });
   }
 
-
   onFilterByJenis(jenis: string) {
     this.selectedJenis = jenis;
     this.applyFilters();
   }
 
-
   onSearchInput(event: any) {
     this.searchTerm = event.target.value.toLowerCase();
     this.applyFilters();
   }
-
 
   applyFilters() {
     this.filteredObatList = this.obatList.filter((obat) => {

@@ -8,8 +8,8 @@
     <ion-title slot="end">{{ selectedObat?.nama }}</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content *ngFor="let item of responses">
-  <ion-list>
+<ion-content >
+  <ion-list *ngFor="let item of filteredKuisioner">
     <ion-list-header>
       <ion-label>{{item.questionIndex + 1}}. {{item.question}}</ion-label>
     </ion-list-header>

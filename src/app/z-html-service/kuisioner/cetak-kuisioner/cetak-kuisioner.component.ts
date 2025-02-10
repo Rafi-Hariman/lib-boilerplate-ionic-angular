@@ -15,8 +15,9 @@ export class CetakKuisionerComponent implements OnInit {
   user: any = null;
   currentQuestionIndex: number = 0;
   questions: { text: string; options: { value: number; label: string; color: string }[] }[] = [];
-
-  responses: { questionIndex: number; value: number; label: string; question: string }[] = [];
+  kelasList: string[] = [];
+  selectedClass: string = '';
+  responses: any = [];
 
   constructor(
     private modalController: ModalController,
@@ -28,6 +29,9 @@ export class CetakKuisionerComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.kelasList = this.generateKelasList();
+
     this.authService.getUser().subscribe(user => {
       console.log('user', user);
       this.user = user;
@@ -57,6 +61,16 @@ export class CetakKuisionerComponent implements OnInit {
     ];
   }
 
+  generateKelasList(): string[] {
+    let kelas: string[] = [];
+    for (let i = 7; i <= 9; i++) {
+      for (let j = 65; j <= 70; j++) {
+        kelas.push(`${i}${String.fromCharCode(j)}`);
+      }
+    }
+    return kelas;
+  }
+
   onRatingChange(event: any) {
     const value = event.detail.value;
     const currentOptions = this.questions[this.currentQuestionIndex].options;
@@ -75,6 +89,7 @@ export class CetakKuisionerComponent implements OnInit {
           questionIndex: this.currentQuestionIndex,
           value: selectedOption.value,
           label: selectedOption.label,
+          kelas: this.selectedClass,
           question: this.questions[this.currentQuestionIndex].text
         });
       }
@@ -104,39 +119,29 @@ export class CetakKuisionerComponent implements OnInit {
   }
 
   onClickSave() {
-    if (this.responses.length !== this.questions.length) {
+    if (this.responses.length !== this.questions.length || !this.selectedClass) {
       this.toastService.presentToast('Silakan jawab semua pertanyaan', 'warning', 'top', 1000);
       return
     }
     const payload = {
-      nama: this.selectedObat?.nama || '',
-      jenis: this.selectedObat?.jenis || '',
-      deskripsi: this.selectedObat?.deskripsi || '',
-      file: this.selectedObat?.file || '',
-      aturan_minum: this.selectedObat?.aturan_minum || '',
-      dosis_obat: this.selectedObat?.dosis_obat || '',
-      frekuensi_minum: this.selectedObat?.frekuensi_minum || '',
-      schedule: this.selectedObat?.schedule || '',
-      pesan_notif: this.selectedObat?.pesan_notif || '',
-      tanggal: this.selectedObat?.tanggal || '',
-      displayName: this.selectedObat?.displayName || '',
-      email: this.selectedObat?.email || '',
       responses: this.responses.map(response => ({
         questionIndex: response.questionIndex || 0,
         value: response.value || 0,
         label: response.label || '',
+        kelas: this.selectedClass,
         displayName: this.user?.displayName || '',
         nama: this.selectedObat?.nama || '',
         email: this.user?.email || '',
         question: this.questions[response.questionIndex]?.text || ''
       }))
     };
+
     console.log('payload', payload);
-    console.log('user', this.user);
+
 
 
     // return
-    this.apiFireBaseService.createResponse(payload)
+    this.apiFireBaseService.createDataExcelUser(payload)
       .then(() => {
         this.toastService.presentToast('Sukses menyimpan data', 'success', 'top', 1000);
         this.modalController.dismiss(payload);

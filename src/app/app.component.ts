@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FcmTokenService } from './z-service/token/fcm-token.service';
-import { SwPush } from '@angular/service-worker';
-import { environment } from 'src/environments/environment';
-import { AngularFireMessaging } from '@angular/fire/compat/messaging';
 import { NotificationService } from './z-service/notif/notification.service';
-import { ActionPerformed, PushNotificationSchema, PushNotifications, Token } from '@capacitor/push-notifications';
-import { MessagingService } from './z-service/notif/messaging.service';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
+import { AuthService } from './z-service/auth/auth.service';
+import { Router } from '@angular/router';
+import { Platform } from '@ionic/angular';
 
 
 @Component({
@@ -18,18 +15,26 @@ export class AppComponent implements OnInit {
 
   fcmToken: any;
   constructor(
-    private afMessaging: AngularFireMessaging,
     private notificationService: NotificationService,
-    private messagingService: MessagingService,
-    private localNotifications: LocalNotifications
+    private localNotifications: LocalNotifications,
+    private authSvc: AuthService,
+    private router : Router,
+    private platform: Platform
 
   ) {
-    this.initializeApp();
-
+    if (this.platform.is('cordova')) {
+      this.initializeApp();
+    }
   }
 
   ngOnInit() {
-    // this.initializeApp();
+    this.authSvc.getUser().subscribe(user => {
+      if (user) {
+        this.router.navigate(['/page/home']);
+      } else {
+        this.router.navigate(['/login']);
+      }
+    });
   }
 
   initializeApp() {

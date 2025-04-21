@@ -38,7 +38,7 @@ export class CetakKuisionerComponent implements OnInit {
     });
     this.questions = [
       {
-        text: `Apakah saudari minum 1 tablet ${this.selectedObat?.nama} per seminggu?`,
+        text: `Apakah Saudari minum tablet ${this.selectedObat?.nama} 1 tablet per seminggu?`,
         options: [
           { value: 0, label: 'Tidak', color: 'danger' },
           { value: 1, label: 'Iya', color: 'success' }

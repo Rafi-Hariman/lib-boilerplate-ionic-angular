@@ -38,7 +38,7 @@ export class CetakKuisionerComponent implements OnInit {
     });
     this.questions = [
       {
-        text: `Apakah saudari minum 1 tablet ${this.selectedObat?.nama} dalam seminggu?`,
+        text: `Apakah saudari minum 1 tablet ${this.selectedObat?.nama} per seminggu?`,
         options: [
           { value: 0, label: 'Tidak', color: 'danger' },
           { value: 1, label: 'Iya', color: 'success' }
@@ -52,7 +52,7 @@ export class CetakKuisionerComponent implements OnInit {
         ],
       },
       {
-        text: `Apakah saudari minum tablet ${this.selectedObat?.nama} menggunakan air putih?`,
+        text: `Apakah saudari minum tablet ${this.selectedObat?.nama} menggunakan air putih atau air jeruk ?`,
         options: [
           { value: 0, label: 'Tidak', color: 'danger' },
           { value: 1, label: 'Iya', color: 'success' }

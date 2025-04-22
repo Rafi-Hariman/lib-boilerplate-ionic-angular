@@ -64,7 +64,7 @@ export class CetakKuisionerComponent implements OnInit {
   generateKelasList(): string[] {
     let kelas: string[] = [];
     for (let i = 7; i <= 9; i++) {
-      for (let j = 65; j <= 70; j++) {
+      for (let j = 65; j <= 71; j++) { // Extend to include 'G' (ASCII 71)
         kelas.push(`${i}${String.fromCharCode(j)}`);
       }
     }

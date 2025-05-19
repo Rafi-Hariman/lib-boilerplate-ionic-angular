@@ -151,4 +151,13 @@ export class CetakKuisionerComponent implements OnInit {
       });
   }
 
+  getBackgroundStyle() {
+  const index = this.currentQuestionIndex + 1;
+  return {
+    background: `url('assets/core/ask${index}.jpg') no-repeat center center`,
+    backgroundSize: 'cover'
+  };
+}
+
+
 }

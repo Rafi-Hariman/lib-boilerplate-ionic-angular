@@ -10,11 +10,25 @@
 </ion-header>
 
 <ion-content class="ion-padding" style="background-color: #f8f4eb">
-  <ion-card style="background-color: rgba(255, 255, 255, 0.7); border-radius: 8px;background: url('/assets/core/1.png') no-repeat center center;
-  background-size: cover;">
-    <ion-card-content class="ion-text-center">
+  <ion-card style="position: relative; height: 202px; border-radius: 8px; overflow: hidden;">
+
+    <div [ngStyle]="getBackgroundStyle()"  style="
+              position: absolute;
+              top: 0; left: 0;
+              width: 100%; height: 100%;">
+    </div>
+
+
+    <div style="background-color: rgba(255, 255, 255, 0.7);
+              position: absolute;
+              top: 0; left: 0;
+              width: 100%; height: 100%;">
+    </div>
+
+
+    <ion-card-content class="ion-text-center" style="position: relative; z-index: 1;">
       <ion-chip color="tertiary" style="font-family: 'Nunito', sans-serif; font-weight: bold;">
-        SURVEY
+        Pertanyaan
       </ion-chip>
       <p style="color: black; font-family: 'Nunito', sans-serif; font-weight: bold; font-size: 1.6em;">
         {{ questions[currentQuestionIndex].text }}
@@ -22,10 +36,11 @@
     </ion-card-content>
   </ion-card>
 
+
   <ion-card-content>
     <ion-segment (ionChange)="onRatingChange($event)" [value]="getResponseValue(currentQuestionIndex)">
       <ion-segment-button *ngFor="let option of questions[currentQuestionIndex]?.options" [value]="option.value">
-        <ion-chip fill="solid" [color]="option.color">{{ option.value }}</ion-chip>
+        <ion-chip fill="solid" [color]="option.color">{{ option.label }}</ion-chip>
       </ion-segment-button>
     </ion-segment>
   </ion-card-content>
